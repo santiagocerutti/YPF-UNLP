@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+
+% Codificación e idioma
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{pgfplots}
+
+
+% Márgenes y estética general
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{tikz}
+\onehalfspacing
+
+% Paquetes matemáticos
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+%\renewcommand{\thesection}{\Roman{section}}
+
+% Títulos y encabezados
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\title{\textbf{Propuesta de módulos de investigación\\
+para el negocio de estaciones de servicio YPF}}
+\author{
+  Nombre Autor 1\thanks{Afiliación Autor 1} \and
+  Nombre Autor 2\thanks{Afiliación Autor 2} \and
+  Nombre Autor 3\thanks{Afiliación Autor 3} \and
+  Nombre Autor 4\thanks{Afiliación Autor 4}
+}
+\date{\today}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  % Título
+  {\Large \textbf{Propuesta de módulos de investigación\\
+  para el negocio de estaciones de servicio YPF}\par}
+  
+\vspace{1.5cm}
+  
+% Autores con afiliación debajo de cada nombre
+\begin{center}
+\begin{tabular}{cccc}
+\large Santiago Cerutti &
+\large Guillermo Falcone &
+\large Francisco Pizzi &
+\large Jorge Puig \\[0.3cm]
+\normalsize UNLP--World Bank &
+\normalsize CEDLAS--UNLP &
+\normalsize UC Davis &
+\normalsize UNLP
+\end{tabular}
+\end{center}
+
+ \vspace{1.5cm} 
+  % Fecha en español
+  {\large \today\par}
+
+
+\vspace{2.5cm}
+
+\begin{abstract}
+%OLD Esta propuesta presenta un conjunto de módulos independientes de investigación econométrica aplicada para cuantificar el impacto causal de políticas comerciales y operativas de YPF sobre (i) ventas de combustibles, (ii) ventas de tiendas de conveniencia y (iii) participación de mercado a nivel local. Cada módulo está diseñado para producir evidencia accionable para la toma de decisiones del negocio (retail), utilizando diseños de identificación robustos (p.\,ej., diferencias en diferencias con adopción escalonada, estudios de eventos, modelos de panel con efectos fijos y estrategias cuasi-experimentales cuando corresponda). Los resultados permitirán estimar retornos económicos de inversiones (formato FULL, mejoras de infraestructura), evaluar la efectividad neta de promociones y micro-pricing, medir el efecto de innovaciones operativas (autodespacho) y cuantificar el rol de fidelización y alianzas en el margen intensivo (mayor consumo por cliente) y extensivo (captación/retención). Los entregables incluyen estimaciones puntuales con intervalos de confianza, tableros ejecutivos de resultados, y recomendaciones operativas basadas en evidencia para maximizar ventas y rentabilidad.
+\end{abstract}
+\end{titlepage}
+
+%\begin{itemize}
+%  \item \hyperref[block:full]{\textbf{Bloque I: Formato YPF Full y espacios premium}}
+%  \item \hyperref[block:promos]{\textbf{Bloque II: Promociones y campañas comerciales}}
+%  \item \hyperref[block:pricing]{\textbf{Bloque III: Micro-pricing y estrategias de precios}}
+%  \item \hyperref[block:self]{\textbf{Bloque IV: Autodespacho de combustible}}
+%  \item \hyperref[block:infra]{\textbf{Bloque V: Infraestructura física e iluminación}}
+%  \item \hyperref[block:fidel]{\textbf{Bloque VI: Programas de fidelización}}
+%  \item \hyperref[block:segment]{\textbf{Bloque VII: Segmentación de consumidores}}
+%  \item \hyperref[block:alliances]{\textbf{Bloque VIII: Alianzas estratégicas}}
+%  \item \hyperref[block:competition]{\textbf{Bloque IX: Competencia y participación de mercado}}
+%\end{itemize}
+
+\tableofcontents
+\newpage
+
+
+\section{Introducción}
+
+En el mercado minorista de combustibles, el producto principal (naftas y gasoil) es esencialmente homogéneo (sobre todo para la percepción del consumidor promedio), lo que limita la competencia vía precios y desplaza el eje competitivo hacia atributos no--precio: calidad del servicio, experiencia en la estación, programas de fidelización, ubicación y otros servicios complementarios. En Argentina, la evolución reciente del sector muestra que la
+participación de mercado dejó de estar determinada exclusivamente por el precio del combustible; factores como la densidad y cobertura de la red, la relación con los franquiciados y la incorporación de servicios de mayor valor agregado —tiendas de conveniencia, oferta gastronómica y \emph{amenities}—
+han adquirido un rol central en la dinámica competitiva.
+
+Evidencia econométrica reciente demuestra que las mejoras en la calidad de estos servicios complementarios constituyen un margen competitivo clave en contextos donde la fijación de precios se encuentra restringida o coordinada (Cerutti et al., 2026). En este marco, la estimación rigurosa de efectos causales y de magnitudes económicamente relevantes asociadas a distintas políticas empresariales —tales como inversiones en infraestructura, estrategias comerciales, esquemas de precios, programas de fidelización o innovaciones operativas— resulta fundamental para evaluar su impacto sobre las ventas de combustibles y de tiendas de conveniencia, así como sobre la competencia y la reasignación de demanda entre marcas. Contar con estimaciones precisas de estos efectos permite orientar la toma de decisiones estratégicas en un sector altamente competitivo y de importancia
+macroeconómica, evitando conclusiones basadas en correlaciones espurias o análisis puramente
+descriptivos.
+
+En los siguientes módulos se detallan distintos análisis econométricos orientados a responder preguntas específicas de relevancia estratégica para el negocio minorista de combustibles y tiendas de conveniencia. Cada módulo está diseñado para cuantificar, de manera rigurosa, el impacto causal de diferentes políticas empresariales sobre las ventas, la composición de la
+demanda y la dinámica competitiva entre estaciones. Para cada caso se presenta un enfoque que explicita: (i) el objetivo del análisis, (ii) su justificación económica y relevancia para la toma de decisiones, (iii) el diseño econométrico propuesto, y (iv) los requerimientos de datos necesarios para su implementación.
+
+Los módulos se conciben como proyectos independientes, lo que permite su discusión y ejecución de forma separada, de acuerdo con las prioridades estratégicas de YPF. En todos los casos se privilegiará el uso de metodologías con identificación clara —incluyendo diseños de diferencias en diferencias, modelos de datos de panel con efectos fijos y controles, métodos de \textit{matching}, diseños de regresión discontinua (RDD), estudios de eventos, entre otros, con el objetivo de obtener estimaciones robustas y de interpretación causal válida, evitando conclusiones basadas en correlaciones espurias.
+
+
+
+
+
+\section{Apertura de Tiendas Full}
+\input{modulos-propuestas/bloque_FULL}
+
+
+
+
+\section{Programa de Fidelización \emph{Serviclub}}
+%\input{modulos-propuestas/bloque_fidelizacion}
+
+\section{Infraestructura de Comunicación: Cartelería Digital}
+\input{modulos-propuestas/bloque_infraestructura_iluminacion}
+
+
+\section{YPF BOXES (lubricentros)}
+
+
+
+\section*{Conclusión}
+
+%OLD La presente propuesta detalla un conjunto de módulos de investigación econométrica aplicada, orientados a proveer información estratégica accionable para YPF en su negocio de estaciones de servicio. Cada bloque aborda una problemática clave –desde la efectividad de inversiones en formato Full o iluminación, hasta el impacto de estrategias comerciales innovadoras como micro-pricing, programas de fidelización y alianzas– con metodologías de punta que garantizan identificaciones causales claras. Al estar estructurados como módulos independientes, estos estudios pueden encararse de manera escalonada según las prioridades del Directorio, manteniendo en todos los casos un estándar técnico-profesional alto y un enfoque práctico en la toma de decisiones. Aplicando estas técnicas modernas de análisis sobre los abundantes datos operativos de YPF, la compañía podrá cuantificar el efecto real de sus iniciativas en un mercado competitivo, separando el \emph{ruido} de la \emph{señal} en la información. De este modo, YPF obtendrá insumos robustos para optimizar sus estrategias de aumento de ventas, mejora de experiencia al cliente y consolidación de su liderazgo de mercado, basados en evidencia empírica concreta adaptada a su realidad de negocio.
+
+\end{document}
