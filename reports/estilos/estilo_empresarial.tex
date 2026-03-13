@@ -1,0 +1,144 @@
+% Estilo empresarial reutilizable
+% Uso: colocar \input{../estilos/estilo_empresarial} inmediatamente después de \documentclass
+
+% Codificación e idioma
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+
+% Paquetes generales
+\usepackage[a4paper, margin=2.3cm]{geometry}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+
+% Matemática
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+% Títulos y enlaces
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+% Paleta ejecutiva
+\definecolor{corporateblue}{RGB}{0,51,102}
+\definecolor{corporategray}{RGB}{90,98,108}
+\definecolor{corporatelight}{RGB}{233,238,245}
+
+% Ajustes tipográficos
+\setstretch{1.15}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+
+% Encabezados y pie
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{corporategray}{\empresarialclient}}
+\fancyhead[R]{\textcolor{corporategray}{\today}}
+\fancyfoot[R]{\textcolor{corporategray}{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{14.5pt}
+
+% Jerarquía visual ejecutiva
+\titleformat{\section}{\Large\bfseries\color{corporateblue}}{\thesection}{0.75em}{}
+\titleformat{\subsection}{\large\bfseries\color{corporateblue}}{\thesubsection}{0.75em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{corporategray}}{\thesubsubsection}{0.75em}{}
+
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.4em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.3em}
+
+% Portada ejecutiva reutilizable
+\makeatletter
+\newcommand{\empresarialclient}{YPF}
+\newcommand{\empresarialdoctype}{Propuesta de consultoría}
+\newcommand{\empresariallogo}{}
+\newcommand{\empresarialsecondarylogo}{}
+
+\newcommand{\setempresarialclient}[1]{\def\empresarialclient{#1}}
+\newcommand{\setempresarialdoctype}[1]{\def\empresarialdoctype{#1}}
+\newcommand{\setempresariallogo}[1]{\def\empresariallogo{#1}}
+\newcommand{\setempresarialsecondarylogo}[1]{\def\empresarialsecondarylogo{#1}}
+
+\newcommand{\makeempresarialcover}[3]{%
+	\begin{titlepage}
+		\thispagestyle{empty}
+
+		\begin{tikzpicture}[remember picture,overlay]
+			% Cabecera curva multicapa (más elaborada y sobria)
+			\fill[corporateblue!97]
+				(current page.north west) --
+				(current page.north east) --
+				([yshift=-2.10cm]current page.north east)
+				.. controls ([xshift=-4.8cm,yshift=-3.10cm]current page.north east)
+				and ([xshift=3.5cm,yshift=-1.90cm]current page.north west)
+				.. ([yshift=-2.55cm]current page.north west) -- cycle;
+
+			\fill[corporateblue!78]
+				([xshift=-0.2cm]current page.north east)
+				-- ([xshift=-6.3cm]current page.north east)
+				.. controls ([xshift=-4.8cm,yshift=-1.45cm]current page.north east)
+				and ([xshift=-1.6cm,yshift=-1.15cm]current page.north east)
+				.. ([xshift=0cm,yshift=-0.95cm]current page.north east)
+				-- cycle;
+
+			\draw[white, opacity=0.28, line width=0.9pt]
+				([xshift=1.6cm,yshift=-2.55cm]current page.north west)
+				.. controls ([xshift=6.2cm,yshift=-2.00cm]current page.north west)
+				and ([xshift=-5.8cm,yshift=-3.20cm]current page.north east)
+				.. ([xshift=-0.9cm,yshift=-2.35cm]current page.north east);
+
+			\draw[corporatelight, opacity=0.45, line width=1.1pt]
+				([xshift=2.6cm,yshift=-3.05cm]current page.north west)
+				.. controls ([xshift=7.1cm,yshift=-2.80cm]current page.north west)
+				and ([xshift=-4.9cm,yshift=-3.85cm]current page.north east)
+				.. ([xshift=-0.6cm,yshift=-3.10cm]current page.north east);
+
+			\ifdefempty{\empresarialsecondarylogo}{}{%
+				\node[opacity=0.05] at ([yshift=-16.4cm]current page.north) {\includegraphics[width=0.50\paperwidth]{\empresarialsecondarylogo}};
+			}
+		\end{tikzpicture}
+
+		\vspace*{-0.45cm}
+
+		\hfill
+		\begin{minipage}[t]{0.23\textwidth}
+			\raggedright
+			\ifdefempty{\empresariallogo}{
+				{\color{white}\selectfont\bfseries\empresarialclient}
+			}{
+				\includegraphics[width=0.92\linewidth]{\empresariallogo}
+			}
+		\end{minipage}
+
+		\vspace*{2.8cm}
+
+		{\color{corporateblue}\fontsize{21}{26}\selectfont\bfseries #1\par}
+
+		\vspace{2.0cm}
+
+		{\normalsize #2\par}
+
+		\vfill
+		\begin{minipage}{\textwidth}
+			\begin{minipage}[t]{0.68\textwidth}
+				\raggedright
+				\vspace{0.15cm}
+				{\color{corporategray}\normalsize #3\par}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[t]{0.28\textwidth}
+				\raggedleft
+				\ifdefempty{\empresarialsecondarylogo}{}{%
+					\includegraphics[height=1.35cm]{\empresarialsecondarylogo}
+				}
+			\end{minipage}
+		\end{minipage}
+	\end{titlepage}
+}
+\makeatother

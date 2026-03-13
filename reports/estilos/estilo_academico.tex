@@ -1,0 +1,33 @@
+% Estilo académico reutilizable
+% Uso: colocar \input{../estilos/estilo_academico} inmediatamente después de \documentclass
+
+% Codificación e idioma
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+
+% Paquetes generales
+\usepackage{pgfplots}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{graphicx}
+
+% Matemática
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+% Títulos y enlaces
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+% Ajustes tipográficos
+\onehalfspacing
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+% Jerarquía visual sobria
+\titleformat{\section}{\large\bfseries}{\thesection}{0.75em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.75em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{0.75em}{}
