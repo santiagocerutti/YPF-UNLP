@@ -1,20 +1,82 @@
 
 %\section*{Bloque F: Evaluación del programa de fidelización (márgenes intensivo vs. extensivo)}
 
-Los programas de fidelización son una herramienta central en la estrategia comercial de las estaciones de servicio modernas. Un programa bien diseñado puede aumentar las ventas al atraer y/o retener clientes frente a la competencia y estimular consumos adicionales. En el caso de YPF, \emph{Serviclub} representa además una fuente de datos muy rica sobre el comportamiento del cliente, con potencial para campañas personalizadas. 
 
-Invertir en el programa (descuentos, puntos, beneficios) tiene un costo para la empresa, por lo que es fundamental evaluar su retorno. Si, por ejemplo, gran parte de las ventas de combustible ya provienen de socios fidelizados, cabe analizar si esas ventas son incrementales (clientes que de no existir el programa quizá cargarían en otra bandera) o simplemente concentran a clientes que igual hubieran cargado.
+% Serviclub es el programa de fidelización. LA APP no es Serviclub, sino una herramienta para usar Serviclub, en donde acumulás y canjeas puntos por descuentos, productos o beneficios. Existen Cliente Serviclub que NO usan la app, a YPF le conviene que usen la App porque le permite trackear mejor el consumo y habilita marketing personalizado.
 
-\textcolor{red}{Además, interesa saber si el programa modifica el patrón de consumo: por ejemplo, si los socios tienden a cargar en mayor medida combustibles premium o a consumir en la tienda gracias a los incentivos.}
-
-\textcolor{red}{Medir los márgenes intensivo y extensivo informará si el programa genera principalmente \emph{share-of-wallet} (que los mismos clientes aumenten su gasto en YPF) o realmente expande la base (captando clientes nuevos o reactivando inactivos). Estos hallazgos guiarán mejoras al programa, identificando qué beneficios funcionan mejor para cada tipo de cliente.}
+\subsection{Motivación}
+Los programas de fidelización no solo buscan retener clientes: también generan datos valiosos sobre comportamiento de consumo y respuesta a incentivos. Sin embargo, el hecho de que los socios consuman más que los no socios no implica que el programa cause ese mayor consumo. Puede simplemente reflejar que quienes más cargan nafta son también quienes más se afilian. El objetivo de esta propuesta es ir más allá de esa comparación descriptiva y estimar el efecto causal del programa sobre ventas, mix de productos y márgenes.
+Para eso planteamos una batería de tres ejercicios complementarios, cada uno diseñado para aislar un aspecto distinto del impacto de Serviclub. Los tres pueden implementarse en conjunto y sus resultados se refuerzan mutuamente.
 
 \subsection{Objetivos}
-Medir la efectividad del programa de fidelización \emph{Serviclub} (y componentes asociados, incluyendo la App YPF) en términos de aumento de ventas y mejora de márgenes, distinguiendo sus efectos en el margen intensivo (mayor consumo por parte de clientes existentes) y extensivo (nuevos clientes o aumente la base activa de usuarios). Se busca cuantificar el aporte del programa de fidelidad tanto en combustibles como en tiendas (¿los socios Serviclub tienen tickets promedio mayores? ¿visitan con más frecuencia que antes de afiliarse? ¿cuánto de las ventas totales proviene de socios fidelizados?).
+Estimar los efectos causales del programa de fidelización \emph{Serviclub} (y componentes asociados, incluyendo la App YPF) en términos de aumento de ventas y mejora de márgenes, distinguiendo sus efectos en el margen intensivo (mayor consumo por parte de clientes existentes) y extensivo (nuevos clientes). Algunas de las preguntas clave a contestar serían:
 
 
-\subsection{Diseño econométrico sugerido}
-Se propone un análisis a nivel de cliente utilizando la base de datos de Serviclub. Una estrategia es aplicar un diseño de \emph{diferencia en diferencias} a nivel individual: comparar la evolución del consumo de combustibles de clientes que se afilian al programa (tratamiento) antes y después de su adhesión, contra un grupo de control de clientes similares que no se afiliaron en ese periodo. Esto requerirá construir grupos comparables (posiblemente mediante \emph{matching} en variables como estación frecuente, consumo previo, tipo de vehículo, etc.). La idea es estimar el cambio causal en el comportamiento al convertirse en socio: ¿aumenta significativamente su volumen mensual de carga o su gasto en tienda tras empezar a acumular puntos? Adicionalmente, se puede medir la probabilidad de retención: por ejemplo, si un cliente Serviclub tiene menor propensión a “desertar” (dejar de cargar en YPF) que un no socio equivalente. Otra dimensión es el efecto de hitos del programa, como canjes de puntos o ascenso de categoría, sobre el consumo: usando modelos de efectos fijos individual, se podría observar si en los meses posteriores a redimir una recompensa hay un aumento en la frecuencia de carga (existe literatura que indica que redimir premios puede estimular compras futuras al reforzar el hábito:contentReference[oaicite:18]{index=18}). En paralelo, a nivel agregado de estación o región, se podría correlacionar la penetración de Serviclub (porcentaje de ventas realizadas a socios) con indicadores de desempeño: por ejemplo, estimar mediante regresión de panel si estaciones con mayor participación de socios muestran crecimiento de ventas mayor en el tiempo que otras, controlando por efectos fijos de estación. Cualquier análisis deberá aislar el efecto fidelización de factores de selección (p.ej., clientes más leales son los que tienden a afiliarse, lo que confunde causa-efecto; de ahí la importancia de métodos de control como propensity score). En cuanto a márgenes, se incorporará el análisis de si el gasto incremental se concentra en combustibles premium (lo que mejora margen unitario) o en adicionales de tienda, etc., para evaluar efecto en margen bruto.
+\begin{itemize}
+    \item ¿Hay diferencias significativas entre el ticket promedio de un socio \emph{Serviclub} y un cliente no socio?
+    \item ¿Los socios \emph{Serviclub} consumen con mayor frecuencia que los no socios?
+    \item ¿La variedad de productos que consumen difiere entre socios y no socios?
+    \item ¿Qué tipo de beneficios generan mayor fidelización y consumo adicional?
+    \item ¿Se fidelizan por los beneficios de \emph{Serviclub} o por la experiencia de compra?
+    %\item ¿Qué campañas logran \emph{fidelizar} a los clientes?
+\end{itemize}
+
+\subsection{Diseño econométrico}
+Un análisis ideal consistiría en utilizar un diseño de \emph{diferencias en diferencias} a nivel individual comparando la evolución del consumo de combustibles de clientes que se afilian al programa (tratamiento) antes y después de su adhesión, contra un grupo de clientes similares que no se afiliaron en ese periodo (control). Esto requeriría construir grupos comparables (mediante técnicas de \emph{matching} en variables como estación frecuente, consumo previo, tipo de vehículo, etc.) para lograr estimar el cambio causal en el comportamiento al convertirse en socio. Sin embargo, la base de datos de \emph{Serviclub} a nivel de cliente nos permite conocer el consumo una vez dentro del programa pero no previo a su afiliación, lo que limita la posibilidad de aplicar un diseño como el mencionado (a menos que en las bases de transacciones se cuente con datos de tarjetas de crédito/débito que permitan trackear clientes no-socios también). 
+
+Sin embargo, mediante la combinación de datos transaccionales, uso de beneficios e implementación de campañas es posible llevar a cabo varios ejercicios cuasi-experimentales robustos para identificar los efectos del programa \emph{Serviclub} y sus incentivos sobre el comportamiento de consumo y fidelización.
+
+
+\subsubsection*{Ejercicio 1: Grados de fidelizacion}
+No todos los clientes que se afilian al programa se vuelven necesariamente ``fieles''. Explotando las diferencias en el grado de fidelización entre los socios (definido mediante métricas como canje de puntos en determinados beneficios o uso de la App), es posible estimar si las frecuencias, variedades y montos de consumo también varían. La idea es usar cambios puntuales en incentivos (puntos extra, promociones, eventos de canje) para estimar mediante un estudio de eventos la dinamica pre/post del consumo individual.
+
+Otra dimensión es el efecto de hitos del programa, como canjes de puntos, sobre el consumo: usando modelos de efectos fijos individual, se podría observar si en los meses posteriores a redimir una recompensa hay un aumento en la frecuencia de carga (existe literatura que indica que redimir premios puede estimular compras futuras al reforzar el hábito \textcolor{red}{BUSCAR REFERENCIAS}).
+
+\subsubsection*{Ejercicio 2: Momentos de ingreso al programa}
+Otra opción es aprovechar la variación en el momento de ingreso al programa. La idea es explotar campañas implementadas en distintos momentos/regiones/estaciones. Por ejemplo, identificar potenciales motivos por los cuales los clientes se afiliaron en determinado momento y lugar (campañas específicas) y analizar su evolución post-afiliación versus otros clientes afiliados de manera más aleatorea, controlando por características observables. \textcolor{red}{Por ejemplo, clientes que se afilian por la promoción de la pelota, luego siguen canjeando puntos de otras formas?. SERÍA UN D-I-D?}
+
+
+\subsubsection*{Ejercicio 3: Complementariedad}
+Una de las preguntas centrales es si la fidelización de los clientes se explica principalmente por los beneficios asociados al programa de puntos o por la experiencia de compra general que ofrece la estación de servicio.
+
+Para aproximarnos a esta pregunta es necesario separar —al menos parcialmente— el efecto del programa de fidelización del efecto de la experiencia física en la estación. Una estrategia posible consiste en aprovechar las remodelaciones de estaciones al formato YPF Full como una fuente de variación exógena en la calidad de la experiencia de compra (ejercicio que realizamos en el módulo correspondiente). En este contexto, las estaciones que fueron remodeladas pueden interpretarse como un experimento natural: antes y después de la remodelación cambia la experiencia de compra, mientras que el funcionamiento del programa Serviclub permanece constante.
+
+Metodológicamente, esto permite comparar la evolución de las ventas antes y después de la remodelación, distinguiendo entre clientes socios de Serviclub y clientes no socios. En términos econométricos, se puede estimar un modelo que incluya una interacción entre las variables “socio Serviclub” y “estación remodelada”.
+
+La interpretación de este ejercicio es directa. Si el aumento de ventas posterior a la remodelación es similar para socios y no socios, ello sugeriría que el cambio responde principalmente a una mejora en la experiencia de compra general. En cambio, si el incremento en ventas es significativamente mayor entre los socios de Serviclub, esto indicaría que existe una complementariedad entre el programa de fidelización y la experiencia física de la estación: es decir, que los beneficios del programa se potencian cuando el cliente interactúa con una infraestructura y servicios de mayor calidad.
+
+Este tipo de análisis permite entender mejor si la fidelización de los clientes depende principalmente de los incentivos del programa o si, por el contrario, surge de la combinación entre beneficios del programa y experiencia integral en la estación.
+
+\textbf{Modelo base (triple diferencia):}
+\[
+y_{ist}=\beta_1 Socio_i + \beta_2 Full_{st} + \beta_3(Socio_i\times Full_{st}) + \alpha_i + \gamma_t + \delta_s + \varepsilon_{ist}
+\]
+
+donde $y_{ist}$ es el consumo de combustible del cliente $i$ en la estación $s$ y periodo $t$, $Socio_i$ es una variable indicadora de si el cliente es socio de Serviclub, $Full_{st}$ indica si la estación $s$ fue remodelada al formato Full en el periodo $t$, $\alpha_i$ son efectos fijos de cliente, $\gamma_t$ efectos fijos de tiempo y $\delta_s$ efectos fijos de estación. Por lo que $\beta_3>0$ sugeriría que \emph{Serviclub} rinde mas donde mejora la experiencia integral.
+
+\subsubsection*{Ejercicios adicionales}
+\textcolor{red}{¿Qué campañas o beneficios fidelizan más? Event Study de campañas específicas}
+
 
 \subsection{Datos requeridos}
-Base de datos de clientes Serviclub: historial transaccional individual (por cada socio, sus cargas de combustible con fecha, litros, tipo de producto, estación, y compras en tienda si están integradas al sistema de puntos). También identificadores de cuándo se unió cada socio al programa y si es posible nivel de actividad (p.ej. categoría del socio, si el programa tiene niveles como Classic, VIP o similar). Se necesitará un período de datos que incluya antes y después de la afiliación de muchos usuarios (idealmente varios meses o años). Asimismo, datos agregados por estación: volúmenes totales y volúmenes identificados como de socios vs. no socios, en frecuencia mensual, para analizar penetración del programa geográficamente. Información sobre promociones específicas del programa (como campañas de sumar puntos extra, canjes, alianzas vigentes en cada momento) será útil para tener en cuenta eventos que puedan afectar el comportamiento. Si se evalúa el margen, se requerirían datos de mix de productos (por ejemplo, qué porcentaje de las ventas de socios es en Infinia vs Super, etc.) y posiblemente el costo asociado a los beneficios otorgados (para contextualizar el análisis costo-beneficio, aunque el foco principal es en cantidades demandadas). Finalmente, para un control más completo, podrían incorporarse datos de competencia (¿hubo migración de clientes desde competidores a YPF por Serviclub? esto podría inferirse si existen encuestas o datos de mercado).
+Principales bases de datos y variables necesarias para este módulo:
+\begin{itemize}
+    \item Transacciones de estaciones de servicio: fecha, estación, litros, ticket, tipo de combustible, compras en tienda, método de pago, uso de la App, etc.
+    \item Transacciones de clientes \emph{Serviclub}: IDEM anterior pero con identificación de \textbf{Cliente}, para poder construir panel individual.
+    \item Información del cliente \emph{Serviclub}: \textbf{Cliente}, fecha de alta, edad, genero, localidad, etc.
+    \item Canjes de clientes \emph{Serviclub}: \textbf{Cliente}, fecha, tipo de canje, puntos utilizados, beneficios obtenidos, exposición a campañas, etc.
+\end{itemize}
+
+El universo de análisis se definirá más adelante al conocer con más precisión la implementación del programa y campañas. Idealmente abarcaría varios meses o años, para poder observar la evolución del comportamiento de consumo antes y después de la afiliación al programa, así como la respuesta a diferentes campañas e incentivos. Además, será necesario contar con información detallada sobre promociones específicas y campañas ofrecidas dentro del programa, incluyendo fechas de implementación y alcance geográfico de las mismas.
+
+
+\textbf{Minimo viable:}
+\begin{itemize}
+    \item panel transaccional de socios (fecha, estacion, litros, ticket, tipo de combustible, compras en tienda);
+    \item fechas de alta, uso de App, canjes y exposicion a campanas;
+    \item panel mensual por estacion (ventas totales, share Serviclub, mix de productos, precios);
+    \item calendario de campanas e implementaciones por zona/estacion;
+    \item identificacion de remodelaciones Full para el ejercicio de complementariedad.
+\end{itemize}
+
+

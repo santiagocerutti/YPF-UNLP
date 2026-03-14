@@ -2,18 +2,26 @@
 % Uso: colocar \input{../estilos/estilo_academico} inmediatamente después de \documentclass
 
 % Codificación e idioma
+\usepackage{iftex}
+\ifPDFTeX
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\else
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\fi
+\usepackage[spanish]{babel}
 
 % Paquetes generales
 \usepackage{pgfplots}
 \usepackage[a4paper, margin=2.5cm]{geometry}
-\usepackage{lmodern}
 \usepackage{setspace}
 \usepackage{multirow}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
 
 % Matemática
 \usepackage{amsmath, amssymb, amsthm, mathtools}
@@ -22,12 +30,29 @@
 \usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
 
+% Paleta académica
+\definecolor{academicblue}{RGB}{0,70,140}
+
+% Compatibilidad: evita error si el motor no define \DeclareUnicodeCharacter
+\providecommand{\DeclareUnicodeCharacter}[2]{}
+% Fuerza el mapeo correcto de Unicode para signos invertidos en compilaciones PDFLaTeX
+\DeclareUnicodeCharacter{00BF}{\textquestiondown}
+\DeclareUnicodeCharacter{2013}{--}
+\DeclareUnicodeCharacter{2014}{---}
+\DeclareUnicodeCharacter{2018}{`}
+\DeclareUnicodeCharacter{2019}{'}
+\DeclareUnicodeCharacter{201C}{``}
+\DeclareUnicodeCharacter{201D}{''}
+
 % Ajustes tipográficos
 \onehalfspacing
 \setlength{\parskip}{0.6em}
 \setlength{\parindent}{0pt}
 
 % Jerarquía visual sobria
-\titleformat{\section}{\large\bfseries}{\thesection}{0.75em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.75em}{}
+\titleformat{\section}{\large\bfseries\color{academicblue}}{\thesection}{0.75em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{academicblue}}{\thesubsection}{0.75em}{}
 \titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{0.75em}{}
+
+% Viñetas redondas en azul de sección
+\setlist[itemize]{label=\textcolor{academicblue}{\textbullet}}

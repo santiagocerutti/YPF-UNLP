@@ -2,18 +2,25 @@
 % Uso: colocar \input{../estilos/estilo_empresarial} inmediatamente después de \documentclass
 
 % Codificación e idioma
+\usepackage{iftex}
+\ifPDFTeX
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\else
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\fi
+\usepackage[spanish]{babel}
 
 % Paquetes generales
 \usepackage[a4paper, margin=2.3cm]{geometry}
-\usepackage{lmodern}
 \usepackage{setspace}
 \usepackage{multirow}
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage[table]{xcolor}
+\usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{etoolbox}
 
@@ -28,6 +35,17 @@
 \definecolor{corporateblue}{RGB}{0,51,102}
 \definecolor{corporategray}{RGB}{90,98,108}
 \definecolor{corporatelight}{RGB}{233,238,245}
+
+% Compatibilidad: evita error si el motor no define \DeclareUnicodeCharacter
+\providecommand{\DeclareUnicodeCharacter}[2]{}
+% Fuerza el mapeo correcto de Unicode para signos invertidos en compilaciones PDFLaTeX
+\DeclareUnicodeCharacter{00BF}{\textquestiondown}
+\DeclareUnicodeCharacter{2013}{--}
+\DeclareUnicodeCharacter{2014}{---}
+\DeclareUnicodeCharacter{2018}{`}
+\DeclareUnicodeCharacter{2019}{'}
+\DeclareUnicodeCharacter{201C}{``}
+\DeclareUnicodeCharacter{201D}{''}
 
 % Ajustes tipográficos
 \setstretch{1.15}
@@ -52,6 +70,9 @@
 \titlespacing*{\section}{0pt}{1.2em}{0.6em}
 \titlespacing*{\subsection}{0pt}{1em}{0.4em}
 \titlespacing*{\subsubsection}{0pt}{0.8em}{0.3em}
+
+% Viñetas redondas en azul corporativo
+\setlist[itemize]{label=\textcolor{corporateblue}{\textbullet}}
 
 % Portada ejecutiva reutilizable
 \makeatletter
