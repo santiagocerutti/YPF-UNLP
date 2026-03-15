@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1773439466.2275 "c:/Users/fmpiz/Documents/GitHub/YPF-UNLP/reports/propuesta/propuesta_ypf.tex" "propuesta_ypf.pdf" "propuesta_ypf" 1773439467.29611 0
+["pdflatex"] 1773535214.21034 "c:/Users/fmpiz/Documents/GitHub/YPF-UNLP/reports/propuesta/propuesta_ypf.tex" "propuesta_ypf.pdf" "propuesta_ypf" 1773535215.83229 0
   "../../imagenes/logo-transparente-unlp.png" 1773423973 43076 118771bde9503418623bde526343164d ""
   "../estilos/estilo_empresarial.tex" 1773423973 4784 37db97751b356f7c19088e9e73ba9be0 ""
   "C:/Users/fmpiz/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1773424813 82686 2381c3433487640bf26aa76a10db7eb2 ""
@@ -173,13 +173,14 @@
   "C:/Users/fmpiz/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1700599895 10214 547fd4d29642cb7c80bf54b49d447f01 ""
   "C:/Users/fmpiz/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/fmpiz/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/fmpiz/Documents/GitHub/YPF-UNLP/reports/propuesta/propuesta_ypf.tex" 1773424795 6922 cf88178a7993c2cf6ad6072f6793e9d7 ""
+  "c:/Users/fmpiz/Documents/GitHub/YPF-UNLP/reports/propuesta/propuesta_ypf.tex" 1773439788 6905 2dc56312e2be579cf8277d110395c15d ""
   "modulos-propuestas/bloque_FULL.tex" 1773423973 8647 6e900f72e66fcd4071301d3323ecdaf5 ""
-  "modulos-propuestas/bloque_infraestructura_iluminacion.tex" 1773439465 6482 fa1738e75101fb805d9d6d22ed16f5e3 ""
-  "propuesta_ypf.aux" 1773439467 1811 4feaa844ad449de10e16cdba7b93d1b1 "pdflatex"
-  "propuesta_ypf.out" 1773439467 1792 377eecb44e806d9ce1d1a928def8470e "pdflatex"
-  "propuesta_ypf.tex" 1773424795 6922 cf88178a7993c2cf6ad6072f6793e9d7 ""
-  "propuesta_ypf.toc" 1773439467 953 027b9dee57992a4b9ce8591a43121169 "pdflatex"
+  "modulos-propuestas/bloque_fidelizacion.tex" 1773439788 6023 8fc82393702d5139134db7e33f4097f8 ""
+  "modulos-propuestas/bloque_infraestructura_iluminacion.tex" 1773535213 9470 27ecec542b5bece65c4f89f190a45399 ""
+  "propuesta_ypf.aux" 1773535215 2188 eb35f9811d03cd349934c25434283a34 "pdflatex"
+  "propuesta_ypf.out" 1773535215 2246 cdb7dbd7f918a4966525ff737a696c07 "pdflatex"
+  "propuesta_ypf.tex" 1773439788 6905 2dc56312e2be579cf8277d110395c15d ""
+  "propuesta_ypf.toc" 1773535215 1206 03a32b2d2c1158e3d97a45594642db26 "pdflatex"
   (generated)
   "propuesta_ypf.aux"
   "propuesta_ypf.log"

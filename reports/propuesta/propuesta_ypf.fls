@@ -344,6 +344,11 @@ INPUT .\modulos-propuestas\bloque_FULL.tex
 INPUT modulos-propuestas\bloque_FULL.tex
 INPUT C:\Users\fmpiz\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT C:\Users\fmpiz\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbxi10.tfm
+INPUT .\modulos-propuestas\bloque_fidelizacion.tex
+INPUT .\modulos-propuestas\bloque_fidelizacion.tex
+INPUT .\modulos-propuestas\bloque_fidelizacion.tex
+INPUT .\modulos-propuestas\bloque_fidelizacion.tex
+INPUT modulos-propuestas\bloque_fidelizacion.tex
 INPUT .\modulos-propuestas\bloque_infraestructura_iluminacion.tex
 INPUT .\modulos-propuestas\bloque_infraestructura_iluminacion.tex
 INPUT .\modulos-propuestas\bloque_infraestructura_iluminacion.tex
