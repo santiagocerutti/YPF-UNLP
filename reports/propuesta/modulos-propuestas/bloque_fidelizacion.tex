@@ -69,7 +69,7 @@ todas las características fijas de cada estación y de cada cliente, y permite
 identificar el cambio en la brecha entre socios y no socios que ocurre justo cuando 
 la estación se remodela, no el nivel absoluto de esa brecha.
 
-En términos concretos, el modelo compara cuatro grupos simultáneamente (ver Cuadro \ref{tab:triple_diff}): socios y no socios, en estaciones Full y no Full, antes y después de la remodelación. El coeficiente clave mide si el efecto de la remodelación sobre el consumo es distinto para socios que para no socios: si la remodelación beneficia por igual a ambos grupos, el efecto se explica por la mejora general de la estación; pero si el aumento es significativamente mayor entre los socios, eso indica que el programa y la experiencia física se potencian mutuamente.
+En términos concretos, el modelo compara cuatro grupos simultáneamente (ver Figura~\ref{fig:ddd}): socios y no socios, en estaciones Full y no Full, antes y después de la remodelación. El coeficiente clave mide si el efecto de la remodelación sobre el consumo es distinto para socios que para no socios: si la remodelación beneficia por igual a ambos grupos, el efecto se explica por la mejora general de la estación; pero si el aumento es significativamente mayor entre los socios, eso indica que el programa y la experiencia física se potencian mutuamente.
 
 Si se encuentra esa complementariedad, las implicancias para la empresa son dobles.Por un lado, la inversión en remodelaciones Full genera un retorno adicional entre los clientes ya fidelizados por \emph{Serviclub}, lo que fortalece el caso para priorizar esas inversiones en estaciones con alta penetración del programa. Por otro lado, el programa estaría siendo subutilizado en estaciones no Full: los mismos incentivos rinden menos donde la experiencia de compra es de menor calidad. En conjunto, esto sugiere que la expansión de \emph{Serviclub} y la mejora de infraestructura son decisiones que conviene coordinar, y no evaluar de forma independiente.
 
@@ -77,89 +77,90 @@ Si se encuentra esa complementariedad, las implicancias para la empresa son dobl
 
 
 
-\begin{table}[h]
-
-\centering
-\caption{Estructura de la Triple Diferencia}
-\label{tab:triple_diff}
-\setlength{\extrarowheight}{4pt}
-\begin{tabular}{lcc}
-\hline\hline
- & \textbf{Antes de remodelación} & \textbf{Después de remodelación} \\
-\hline
-\textit{Estación Full} & & \\
-\quad Socio Serviclub   & $A$ & $B$ \\
-\quad No socio          & $C$ & $D$ \\[4pt]
-\textit{Estación no Full} & & \\
-\quad Socio Serviclub   & $E$ & $F$ \\
-\quad No socio          & $G$ & $H$ \\
-\hline\hline
-\multicolumn{3}{p{10cm}}{\footnotesize El efecto buscado es: 
-$[(B-A)-(D-C)] - [(F-E)-(H-G)]$. 
-Si este valor es positivo y significativo, existe complementariedad entre 
-el programa \emph{Serviclub} y la experiencia en estaciones Full.}\\
-\end{tabular}
-\end{table}
-
-\begin{table}[h]
-\centering
-\small
-\setlength{\extrarowheight}{5pt}
-\setlength{\tabcolsep}{10pt}
-\begin{tabular}{lcccc}
-\hline\hline
- & \multicolumn{2}{c}{\cellcolor{corporateblue!12}\textbf{Antes}}
- & \multicolumn{2}{c}{\cellcolor{corporateblue!38}\textbf{Después}} \\
- & \cellcolor{corporateblue!12}\small\textbf{Socio}
- & \cellcolor{corporategray!20}\small\textbf{No socio}
- & \cellcolor{corporateblue!12}\small\textbf{Socio}
- & \cellcolor{corporategray!20}\small\textbf{No socio} \\
-\hline
-\textit{Estación Full}
- & \cellcolor{corporateblue!22}$A$
- & \cellcolor{corporategray!12}$C$
- & \cellcolor{corporateblue!52}$B$
- & \cellcolor{corporategray!38}$D$ \\
-\textit{Estación no Full}
- & \cellcolor{corporateblue!22}$E$
- & \cellcolor{corporategray!12}$G$
- & \cellcolor{corporateblue!52}$F$
- & \cellcolor{corporategray!38}$H$ \\
-\hline\hline
-\end{tabular}
-
-\vspace{0.6em}
-\[
-\text{Efecto buscado} =
-\underbrace{(B - A) - (D - C)}_{\text{DiD en estaciones Full}}
-\;-\;
-\underbrace{(F - E) - (H - G)}_{\text{DiD en estaciones no Full}}
-\]
-{\footnotesize\color{corporategray}\itshape
-Tonos más oscuros = período post-remodelación.\quad
-Azul: socios \emph{Serviclub}.\quad Gris: no socios.}
-\end{table}
+%\begin{table}[h]
+%
+%\centering
+%\caption{Estructura de la Triple Diferencia}
+%\label{tab:triple_diff}
+%\setlength{\extrarowheight}{4pt}
+%\begin{tabular}{lcc}
+%\hline\hline
+% & \textbf{Antes de remodelación} & \textbf{Después de remodelación} \\
+%\hline
+%\textit{Estación Full} & & \\
+%\quad Socio Serviclub   & $A$ & $B$ \\
+%\quad No socio          & $C$ & $D$ \\[4pt]
+%\textit{Estación no Full} & & \\
+%\quad Socio Serviclub   & $E$ & $F$ \\
+%\quad No socio          & $G$ & $H$ \\
+%\hline\hline
+%\multicolumn{3}{p{10cm}}{\footnotesize El efecto buscado es: 
+%$[(B-A)-(D-C)] - [(F-E)-(H-G)]$. 
+%Si este valor es positivo y significativo, existe complementariedad entre 
+%el programa \emph{Serviclub} y la experiencia en estaciones Full.}\\
+%\end{tabular}
+%\end{table}
+%
+%\begin{table}[h]
+%\centering
+%\small
+%\setlength{\extrarowheight}{5pt}
+%\setlength{\tabcolsep}{10pt}
+%\begin{tabular}{lcccc}
+%\hline\hline
+% & \multicolumn{2}{c}{\cellcolor{corporateblue!12}\textbf{Antes}}
+% & \multicolumn{2}{c}{\cellcolor{corporateblue!38}\textbf{Después}} \\
+% & \cellcolor{corporateblue!12}\small\textbf{Socio}
+% & \cellcolor{corporategray!20}\small\textbf{No socio}
+% & \cellcolor{corporateblue!12}\small\textbf{Socio}
+% & \cellcolor{corporategray!20}\small\textbf{No socio} \\
+%\hline
+%\textit{Estación Full}
+% & \cellcolor{corporateblue!22}$A$
+% & \cellcolor{corporategray!12}$C$
+% & \cellcolor{corporateblue!52}$B$
+% & \cellcolor{corporategray!38}$D$ \\
+%\textit{Estación no Full}
+% & \cellcolor{corporateblue!22}$E$
+% & \cellcolor{corporategray!12}$G$
+% & \cellcolor{corporateblue!52}$F$
+% & \cellcolor{corporategray!38}$H$ \\
+%\hline\hline
+%\end{tabular}
+%
+%\vspace{0.6em}
+%\[
+%\text{Efecto buscado} =
+%\underbrace{(B - A) - (D - C)}_{\text{DiD en estaciones Full}}
+%\;-\;
+%\underbrace{(F - E) - (H - G)}_{\text{DiD en estaciones no Full}}
+%\]
+%{\footnotesize\color{corporategray}\itshape
+%Tonos más oscuros = período post-remodelación.\quad
+%Azul: socios \emph{Serviclub}.\quad Gris: no socios.}
+%\end{table}
 
 \begin{figure}
     \centering
-    \caption{Diagrama ilustrativo de la Triple Diferencia}
+    \caption{Esquema ilustrativo de la Triple Diferencia}
+    \label{fig:ddd}
     \includegraphics[width=0.6\textwidth]{../../imagenes/esquema_ddd.png}
 \end{figure}
 
 
 
-\textbf{Modelo base (triple diferencia):}
-\[
-y_{ist}=\beta_1 Socio_i + \beta_2 Full_{st} + \beta_3(Socio_i\times Full_{st}) + \alpha_i + \gamma_t + \delta_s + \varepsilon_{ist}
-\]
-
-donde $y_{ist}$ es el consumo de combustible del cliente $i$ en la estación $s$ y periodo $t$, $Socio_i$ es una variable indicadora de si el cliente es socio de \emph{Serviclub}, $Full_{st}$ indica si la estación $s$ fue remodelada al formato Full en el periodo $t$, $\alpha_i$ son efectos fijos de cliente, $\gamma_t$ efectos fijos de tiempo y $\delta_s$ efectos fijos de estación. Por lo que $\beta_3>0$ sugeriría que \emph{Serviclub} rinde mas donde mejora la experiencia integral.
+%\textbf{Modelo base (triple diferencia):}
+%\[
+%y_{ist}=\beta_1 Socio_i + \beta_2 Full_{st} + \beta_3(Socio_i\times Full_{st}) + \alpha_i + \gamma_t + %\delta_s + \varepsilon_{ist}
+%\]
+%
+%donde $y_{ist}$ es el consumo de combustible del cliente $i$ en la estación $s$ y periodo $t$, $Socio_i$ es %una variable indicadora de si el cliente es socio de \emph{Serviclub}, $Full_{st}$ indica si la estación $s$ %fue remodelada al formato Full en el periodo $t$, $\alpha_i$ son efectos fijos de cliente, $\gamma_t$ efectos %fijos de tiempo y $\delta_s$ efectos fijos de estación. Por lo que $\beta_3>0$ sugeriría que \emph{Serviclub} %rinde mas donde mejora la experiencia integral.
 
 \subsubsection*{Ejercicios adicionales}
 \textcolor{red}{¿Qué campañas o beneficios fidelizan más? Event Study de campañas específicas}
 
 
-\subsection{Datos requeridos}
+\subsection{Datos requeridos para el módulo}
 Principales bases de datos y variables necesarias para este módulo:
 \begin{itemize}
     \item Transacciones de estaciones de servicio: fecha, estación, litros, ticket, tipo de combustible, compras en tienda, método de pago, uso de la App, etc.
@@ -169,15 +170,5 @@ Principales bases de datos y variables necesarias para este módulo:
 \end{itemize}
 
 El universo de análisis se definirá más adelante al conocer con más precisión la implementación del programa y campañas. Idealmente abarcaría varios meses o años, para poder observar la evolución del comportamiento de consumo antes y después de la afiliación al programa, así como la respuesta a diferentes campañas e incentivos. Además, será necesario contar con información detallada sobre promociones específicas y campañas ofrecidas dentro del programa, incluyendo fechas de implementación y alcance geográfico de las mismas.
-
-
-\textbf{Minimo viable:}
-\begin{itemize}
-    \item panel transaccional de socios (fecha, estacion, litros, ticket, tipo de combustible, compras en tienda);
-    \item fechas de alta, uso de App, canjes y exposicion a campanas;
-    \item panel mensual por estacion (ventas totales, share \emph{Serviclub}, mix de productos, precios);
-    \item calendario de campanas e implementaciones por zona/estacion;
-    \item identificacion de remodelaciones Full para el ejercicio de complementariedad.
-\end{itemize}
 
 
