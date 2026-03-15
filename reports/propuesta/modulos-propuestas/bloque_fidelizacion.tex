@@ -4,7 +4,6 @@
 
 % Serviclub es el programa de fidelización. LA APP no es Serviclub, sino una herramienta para usar Serviclub, en donde acumulás y canjeas puntos por descuentos, productos o beneficios. Existen Cliente Serviclub que NO usan la app, a YPF le conviene que usen la App porque le permite trackear mejor el consumo y habilita marketing personalizado.
 
-\subsection{Motivación}
 Los programas de fidelización no solo buscan retener clientes: también generan datos valiosos sobre comportamiento de consumo y respuesta a incentivos. Sin embargo, el hecho de que los socios consuman más que los no socios no implica que el programa cause ese mayor consumo. Puede simplemente reflejar que quienes más cargan nafta son también quienes más se afilian. El objetivo de esta propuesta es ir más allá de esa comparación descriptiva y estimar el efecto causal del programa sobre ventas, mix de productos y márgenes.
 Para eso planteamos una batería de tres ejercicios complementarios, cada uno diseñado para aislar un aspecto distinto del impacto de Serviclub. Los tres pueden implementarse en conjunto y sus resultados se refuerzan mutuamente.
 
@@ -21,7 +20,7 @@ Las preguntas centrales que guían el análisis son:
     %\item ¿Qué campañas logran \emph{fidelizar} a los clientes?
 \end{itemize}
 
-\subsection{Diseño general}
+\subsection{Diseño econométrico}
 El desafío metodológico principal es que la base de datos de \emph{Serviclub} registra el consumo una vez que el cliente ya es socio, pero no antes de su afiliación. Esto impide, en principio, comparar directamente el comportamiento de cada cliente antes y después de unirse al programa\footnote{En caso de que las bases de transacciones cuenten con datos de tarjetas de crédito/débito que permitan trackear clientes no-socios existirían más alternativas.}.
 Sin embargo, la combinación de datos transaccionales, uso de beneficios e implementación de campañas permite diseñar tres ejercicios cuasi-experimentales que sortean esta limitación de maneras distintas y complementarias. 
 
@@ -156,11 +155,11 @@ Si se encuentra esa complementariedad, las implicancias para la empresa son dobl
 %
 %donde $y_{ist}$ es el consumo de combustible del cliente $i$ en la estación $s$ y periodo $t$, $Socio_i$ es %una variable indicadora de si el cliente es socio de \emph{Serviclub}, $Full_{st}$ indica si la estación $s$ %fue remodelada al formato Full en el periodo $t$, $\alpha_i$ son efectos fijos de cliente, $\gamma_t$ efectos %fijos de tiempo y $\delta_s$ efectos fijos de estación. Por lo que $\beta_3>0$ sugeriría que \emph{Serviclub} %rinde mas donde mejora la experiencia integral.
 
-\subsubsection*{Ejercicios adicionales}
-\textcolor{red}{¿Qué campañas o beneficios fidelizan más? Event Study de campañas específicas}
+%\subsubsection*{Ejercicios adicionales}
+%\textcolor{red}{¿Qué campañas o beneficios fidelizan más? Event Study de campañas específicas}
 
 
-\subsection{Datos requeridos para el módulo}
+\subsection{Datos requeridos}
 Principales bases de datos y variables necesarias para este módulo:
 \begin{itemize}
     \item Transacciones de estaciones de servicio: fecha, estación, litros, ticket, tipo de combustible, compras en tienda, método de pago, uso de la App, etc.
