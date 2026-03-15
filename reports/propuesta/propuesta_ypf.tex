@@ -56,18 +56,37 @@ para el negocio de estaciones de servicio YPF}}
 
 \section{Introducción}
 
-En el mercado minorista de combustibles, el producto principal (naftas y gasoil) es esencialmente homogéneo (sobre todo para la percepción del consumidor promedio), lo que limita la competencia vía precios y desplaza el eje competitivo hacia atributos no--precio: calidad del servicio, experiencia en la estación, programas de fidelización, ubicación y otros servicios complementarios. En Argentina, la evolución reciente del sector muestra que la
-participación de mercado dejó de estar determinada exclusivamente por el precio del combustible; factores como la densidad y cobertura de la red, la relación con los franquiciados y la incorporación de servicios de mayor valor agregado —tiendas de conveniencia, oferta gastronómica y \emph{amenities}—
-han adquirido un rol central en la dinámica competitiva.
 
-Evidencia econométrica reciente demuestra que las mejoras en la calidad de estos servicios complementarios constituyen un margen competitivo clave en contextos donde la fijación de precios se encuentra restringida o coordinada (Cerutti et al., 2026). En este marco, la estimación rigurosa de efectos causales y de magnitudes económicamente relevantes asociadas a distintas políticas empresariales —tales como inversiones en infraestructura, estrategias comerciales, esquemas de precios, programas de fidelización o innovaciones operativas— resulta fundamental para evaluar su impacto sobre las ventas de combustibles y de tiendas de conveniencia, así como sobre la competencia y la reasignación de demanda entre marcas. Contar con estimaciones precisas de estos efectos permite orientar la toma de decisiones estratégicas en un sector altamente competitivo y de importancia
-macroeconómica, evitando conclusiones basadas en correlaciones espurias o análisis puramente
-descriptivos.
 
-En los siguientes módulos se detallan distintos análisis econométricos orientados a responder preguntas específicas de relevancia estratégica para el negocio minorista de combustibles y tiendas de conveniencia. Cada módulo está diseñado para cuantificar, de manera rigurosa, el impacto causal de diferentes políticas empresariales sobre las ventas, la composición de la
-demanda y la dinámica competitiva entre estaciones. Para cada caso se presenta un enfoque que explicita: (i) el objetivo del análisis, (ii) su justificación económica y relevancia para la toma de decisiones, (iii) el diseño econométrico propuesto, y (iv) los requerimientos de datos necesarios para su implementación.
+COntexto: Competencia no-precio en combustibles
+Complejidad: Dificultad para identificar efectos causales
+Que propponemos: Enfoque econométrico para estimación causal
+Como lo hacemos I : Propuesta modular de investigación
+Como lo hacemos II: Estructura y estado de módulos
+Descripción de los cuatro módulos
 
-Los módulos se conciben como proyectos independientes, lo que permite su discusión y ejecución de forma separada, de acuerdo con las prioridades estratégicas de YPF. En todos los casos se privilegiará el uso de metodologías con identificación clara —incluyendo diseños de diferencias en diferencias, modelos de datos de panel con efectos fijos y controles, métodos de \textit{matching}, diseños de regresión discontinua (RDD), estudios de eventos, entre otros, con el objetivo de obtener estimaciones robustas y de interpretación causal válida, evitando conclusiones basadas en correlaciones espurias.
+
+
+En el mercado minorista de combustibles, el producto principal (naftas y gasoil) es esencialmente homogéneo, al menos desde la percepción del consumidor promedio. Esto limita la competencia vía precios y desplaza el eje competitivo hacia atributos no--precio: calidad del servicio, experiencia en la estación, programas de fidelización, ubicación y otros servicios complementarios. En Argentina, la evolución reciente del sector muestra que la participación de mercado dejó de estar determinada exclusivamente por el precio del combustible; factores como la densidad y cobertura de la red, la relación con los franquiciados y la incorporación de servicios de mayor valor agregado —tiendas de conveniencia, oferta gastronómica y \emph{amenities}— han adquirido un rol central en la dinámica competitiva (Cerutti et al., 2026). 
+
+En este contexto, la estimación rigurosa de efectos causales y de magnitudes económicamente relevantes asociadas a distintas políticas empresariales resulta fundamental para evaluar su impacto sobre las ventas de combustibles y de tiendas de conveniencia, así como sobre la competencia y la reasignación de demanda entre marcas. Sin embargo, una dificultad inherente al mercado de combustibles es que múltiples factores operan de manera simultánea sobre las ventas de una estación de servicio. Cambios en infraestructura, programas comerciales, promociones, condiciones de competencia local o variaciones en la demanda agregada pueden ocurrir al mismo tiempo, lo que dificulta atribuir de manera directa la evolución de las ventas a una única decisión empresarial. En este contexto, las comparaciones simples o los análisis descriptivos suelen resultar insuficientes para identificar relaciones causales claras entre las decisiones de la empresa y sus resultados comerciales.
+
+Frente a esta complejidad, la propuesta presentada en este documento se basa en un enfoque de estimación econométrica orientado a responder preguntas bien definidas y de alcance acotado. En términos generales, el análisis se basa en comparar situaciones similares en las que una estación de servicio experimenta un cambio específico —por ejemplo, la introducción de una infraestructura, una política comercial o una herramienta de fidelización— mientras otras condiciones del mercado permanecen relativamente constantes. Este enfoque permite estimar cómo reaccionan las ventas ante variaciones marginales en determinados aspectos de la operación, construyendo contrafácticos creíbles que permiten distinguir entre simples correlaciones y efectos causales económicamente relevantes.
+
+El presente documento se desarrolla a través de la inclusión de distintos módulos de investigación, que surgen de las reuniones de trabajo mantenidas previamente entre los equipos, en las cuales se identificaron distintas necesidades analíticas vinculadas con la operación y la estrategia comercial de la red de estaciones de servicio. Cada módulo incluido en esta propuesta debe interpretarse como un ejercicio analítico independiente orientado a responder una pregunta específica mediante una estrategia empírica claramente definida. En conjunto, estos módulos buscan iluminar diferentes dimensiones del funcionamiento del negocio minorista de YPF, contribuyendo a comprender aspectos de la dinámica competitiva, el comportamiento de los consumidores y la operatoria de las estaciones de servicio.
+
+La estructura de cada módulo se basa en tres partes: la identificación de una pregunta concreta a responder, el diseño econométrico para su estimación acompañado de una justificación metodológica, y la descripción de los requerimientos en términos de datos. Actualmente, los primeros dos módulos cuentan ya cuentan con un diseño empírico más desarrollado, mientras que en los ultimos dos aún restan definiciones metodológicas vinculadas con la construcción de variables o con la especificación del modelo. En estos casos, avanzar en el diseño requiere profundizar el conocimiento sobre el funcionamiento operativo del negocio, así como identificar con mayor precisión las necesidades de información más relevantes para la toma de decisiones dentro de la empresa.
+
+El documento se organiza en torno a cuatro módulos de investigación. El primero analiza el impacto de la conversión de estaciones al formato YPF Full sobre las ventas de combustibles y de tienda, con el objetivo de cuantificar el retorno comercial de este tipo de inversiones. El segundo estudia el programa de fidelización Serviclub y busca identificar en qué medida sus incentivos afectan el comportamiento de consumo de los clientes. El tercer módulo evalúa el impacto de la cartelería digital y otras herramientas de comunicación comercial sobre la interacción de los consumidores con la marca y sobre las ventas en la estación. Finalmente, el cuarto módulo analiza el funcionamiento del modelo de negocio de YPF Boxes, con el objetivo de comprender los determinantes de su grado de utilización y el entorno competitivo en el que operan. Adicionalmente, el documento incluye una sección de descripción de bases de datos que presenta las principales fuentes de información que entendemos se encuentran disponibles dentro de YPF y que resultan relevantes para la implementación de los ejercicios empíricos propuestos.
+
+
+
+
+
+
+
+
+
 
 \section{Apertura de Tiendas Full}
 \input{modulos-propuestas/bloque_FULL}
@@ -85,6 +104,9 @@ Los módulos se conciben como proyectos independientes, lo que permite su discus
 
 \section*{Conclusión}
 
+
+\section{Bases de datos}
+\input{modulos-propuestas/intro_bases_de_datos.tex}
 %OLD La presente propuesta detalla un conjunto de módulos de investigación econométrica aplicada, orientados a proveer información estratégica accionable para YPF en su negocio de estaciones de servicio. Cada bloque aborda una problemática clave –desde la efectividad de inversiones en formato Full o iluminación, hasta el impacto de estrategias comerciales innovadoras como micro-pricing, programas de fidelización y alianzas– con metodologías de punta que garantizan identificaciones causales claras. Al estar estructurados como módulos independientes, estos estudios pueden encararse de manera escalonada según las prioridades del Directorio, manteniendo en todos los casos un estándar técnico-profesional alto y un enfoque práctico en la toma de decisiones. Aplicando estas técnicas modernas de análisis sobre los abundantes datos operativos de YPF, la compañía podrá cuantificar el efecto real de sus iniciativas en un mercado competitivo, separando el \emph{ruido} de la \emph{señal} en la información. De este modo, YPF obtendrá insumos robustos para optimizar sus estrategias de aumento de ventas, mejora de experiencia al cliente y consolidación de su liderazgo de mercado, basados en evidencia empírica concreta adaptada a su realidad de negocio.
 
 \end{document}

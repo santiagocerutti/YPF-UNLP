@@ -1,9 +1,18 @@
 
 
+La implementación de cartelería digital en estaciones de servicio constituye una innovación en la comunicación comercial que permite interactuar de manera dinámica con los consumidores. Este módulo se centra en analizar el impacto de dicha infraestructura sobre las ventas de combustibles y productos de tienda, así como sobre la interacción de los usuarios con la aplicación móvil de la empresa. La complejidad del análisis radica en separar el efecto de la experiencia del consumidor y la identificación con la marca del efecto directo sobre la demanda, considerando además la granularidad de los datos disponibles a nivel de usuario, estación y hora. La evidencia obtenida permitirá identificar los tipos de publicidad y promociones más efectivos, optimizando la inversión en comunicación comercial dinámica y ofreciendo información útil para la toma de decisiones estratégicas.
+
+
+
+
 
 \subsection{Objetivo}
 
-YPF ha implementado \emph{cartelería digital en estaciones}, lo que permite realizar comunicación comercial dinámica. El objetivo de este bloque consiste en evaluar si esta infraestructura impacta en las ventas y qué tipo de mensajes resultan más efectivos, ya sea a traves de publicidades o promociones. En términos generales, se busca estimar cómo ciertas características físicas y de infraestructura de las estaciones de servicio inciden en las ventas de combustibles y de productos de tienda. En particular, el análisis busca responder a preguntas como las siguientes:
+YPF ha implementado \emph{cartelería digital en estaciones}, permitiendo realizar comunicación comercial dinámica. El objetivo de este bloque consiste en evaluar si esta infraestructura impacta en las ventas de combustibles y productos de tienda, así como identificar qué tipo de mensajes —publicidades o promociones— resultan más efectivos. En términos generales, se busca estimar cómo ciertas características físicas e infraestructura de las estaciones influyen en la conducta de los consumidores y en el desempeño comercial.
+
+El módulo se centra en dos preguntas interrelacionadas. En primer lugar, la cartelería digital pretende mejorar la experiencia del usuario y fortalecer la identificación con la marca. En segundo lugar, condicionado a que esto ocurra, se plantea si dichas mejoras se traducen efectivamente en un aumento de ventas. La dificultad radica en separar estos efectos: por un lado, el impacto en la percepción y fidelización del consumidor; por otro, el efecto directo sobre la demanda. Sin identificar el canal, no es posible distinguir si un incremento en ventas refleja una mayor experiencia del usuario o simplemente un aumento de demanda en las zonas con cartelería digital. Por ello, la estrategia de estimación debe contemplar ambas dimensiones de manera simultánea.
+
+En particular, el análisis busca responder a preguntas como las siguientes: 
 
 \begin{itemize}
     \item ¿La cartelería digital aumenta las ventas de la estación?
@@ -16,42 +25,56 @@ YPF ha implementado \emph{cartelería digital en estaciones}, lo que permite rea
     \item ¿Ciertas mejoras físicas impactan más en las ventas nocturnas o en la captación de determinados perfiles de clientes?
 \end{itemize}
 
-Este módulo se estructura en torno a dos preguntas relacionadas. En primer lugar, la cartelería digital busca mejorar la experiencia del usuario y aumentar la identificación entre la marca y el consumidor. En segundo lugar, condicionado a que lo anterior ocurra, se plantea si dichas mejoras se traducen efectivamente en un aumento de ventas.
 
-La dificultad para abordar estas preguntas radica en la necesidad de separar dos efectos distintos: por un lado, el impacto en la percepción y experiencia del usuario; por otro, el impacto directo en las ventas. Es posible que los consumidores desarrollen una mayor identificación con la marca sin que ello se traduzca necesariamente en un aumento inmediato en la demanda de combustibles u otros productos.
-
-%Una estrategia basada exclusivamente en encuestas a usuarios antes y después de la implementación de la cartelería digital permitiría medir el impacto sobre la experiencia del consumidor, pero no necesariamente el efecto de dicha mejora sobre las ventas. De manera análoga, una estrategia centrada únicamente en explicar variaciones en las ventas a partir de la implementación de la cartelería digital podría identificar cambios en la demanda, pero no permitiría determinar el canal a través del cual se producen dichos cambios.
-
-Sin identificar el canal, no es posible distinguir si el aumento en las ventas responde a una mejora en la experiencia del usuario y a una mayor fidelización con la marca, o si simplemente refleja un aumento de la demanda en las zonas donde se implementó la cartelería digital, independientemente de la intervención. Por lo tanto, una estrategia de estimación adecuada debe contemplar ambas dimensiones de manera simultánea.
 
 
 \subsection{Diseño econométrico}
 
-El diseño ecconométrico propuesto para abordar estas preguntas se basa en dos diseños distintos. Por un lado, se porpone estimar mopdelos de probabilidad condicional, el segundo una estrategia basada en un modelo de variables instrumentales implementado en dos etapas. 
+El diseño econométrico propuesto para este módulo se basa en dos enfoques complementarios. El primero consiste en estimar modelos de probabilidad condicional para analizar la compra de productos en tienda en relación con la publicidad específica mostrada en la cartelería digital. El segundo enfoque utiliza un modelo de variables instrumentales implementado en dos etapas, con el objetivo de evaluar de manera causal cómo la interacción con la aplicación móvil se traduce en ventas.
 
-Una primera estrategia consiste en estimar modelos de probabilidad de compra de productos en tienda relacionados con publicidad especifica. A modo de ejemplo, se estimara cual es la probabilidad de comprar un cafe en la tienda y si esa probabilidad aumenta cuando en una estacion de servicio se encuentra mostrando una publicidad de cafe en ese momento. El modelo controlara por efecto fijo a nivel estacio de servicio, dia y hora, flujo de ventas en combustibles y otros productos en tienda.  En definitiva se buscara contruir un contrafactico con el objetivo de comparar dos estaciones de servicio ``promedio'' en condiciones similares, pero que solo difieren en que una muestra una publicidad atada a un producto específico. Dado que la publicidad mostrada tiene un objetivo especifico, se lograra estimar parametros que permitan medir el efecto de la publicidad en la demanda especifica de un producto.  de de observaciones permite controlar por factores especificos  en donde la variable dependiente.  
+La primera estrategia se centra en la estimación de la probabilidad de compra de un producto específico, como un café, y cómo esta probabilidad varía cuando la estación de servicio muestra publicidad correspondiente en un momento determinado. El modelo controla efectos fijos a nivel de estación, día y hora, así como el flujo de ventas de combustibles y otros productos en tienda, buscando construir un contrafactual que permita comparar estaciones promedio en condiciones similares, diferenciadas únicamente por la presencia de la publicidad.
+
+La segunda estrategia se implementa mediante un modelo de variables instrumentales en dos etapas. En la primera etapa, se identifica el efecto de la cartelería digital sobre el tiempo de uso de la aplicación, utilizando la exposición a la publicidad como variable instrumental y la interacción con la aplicación como variable endógena. El parámetro de interés en la segunda etapa corresponde al impacto de dicha interacción sobre las ventas de combustibles y productos de tienda.
+
+Para una estimación adecuada, es necesario realizar primero una discusión conceptual con el equipo responsable de la comunicación comercial dinámica, a fin de identificar y categorizar los mensajes publicitarios y promocionales. El acceso a datos desagregados a nivel de usuario vinculados con la estación de servicio permite medir el grado de interacción con la aplicación en distintos contextos y usar esta información como insumo para estimar los efectos sobre la demanda.
+
+Los resultados de este diseño econométrico permiten extraer conclusiones en dos dimensiones principales. Primero, es posible clasificar los tipos de publicidad según el grado de reacción que generan en los consumidores, utilizando como métrica la interacción con la aplicación. Segundo, dado que la publicidad puede mostrarse de manera aleatoria, el aumento en la interacción puede considerarse exógeno, lo que permite estimar de forma causal cómo esta interacción impacta en las ventas, tanto en el momento de la exposición como en períodos posteriores.
 
 
-Una segunda estrategia consiste en implementar un modelo  variables instrumentales implementado en dos etapas. En una primera etapa, se buscara identificar  el efecto especifico de la carteleria digital sobre tiempo de uso en la aplicacion.  En este marco, la variable instrumental corresponde a la exposición a la publicidad, medida a través de la interacción con la aplicación. La variable endógena es el nivel de ventas, y el parámetro de interés corresponde al impacto de la interacción con la aplicación sobre las ventas.
-
-Dado el nivel de desagregación de la base de datos \emph{TRANSACCIONAL SERVICLUB}, es posible estimar métricas sobre el impacto de una publicidad específica en el uso de la aplicación. En una primera etapa, el objetivo consiste en identificar si los cambios en la publicidad generan, en promedio, un mayor nivel de interacción con la aplicación, por ejemplo mediante una mayor frecuencia de apertura o un mayor tiempo de uso.
-
-Para realizar una estimación adecuada y un análisis integral sobre la implementación de la cartelería digital, es necesaria primero una discusión conceptual con el equipo responsable de implementar la comunicación comercial dinámica a fin de identificar y categorizar los mensajes orientados a publicidad y a los de promociones especificas. 
 
 
-El hecho de contar con datos a nivel de usuario que pueden vincularse con la estación de servicio donde los clientes cargan combustible permite medir el grado de interacción de los consumidores con la aplicación en distintos contextos.
 
-La estrategia empírica no se limita a estimar el impacto de las distintas publicidades sobre la interacción con la aplicación. En una segunda etapa, dicha interacción se utiliza como insumo para evaluar cómo una mayor o menor exposición a la aplicación se traduce en efectos sobre la demanda de combustibles y de productos dentro de la tienda.
 
-Desde el punto de vista econométrico, esta estrategia puede implementarse mediante un modelo de variables instrumentales. En este marco:
 
-\begin{itemize}
-    \item La variable instrumental es la exposición a la publicidad, medida a través de la interacción con la aplicación.
-    \item La variable endógena es el nivel de ventas.
-    \item El parámetro de interés corresponde al impacto de la interacción con la aplicación sobre las ventas.
-\end{itemize}
 
-Los resultados permiten obtener conclusiones en dos dimensiones. En primer lugar, es posible clasificar los distintos tipos de publicidad según el grado de reacción que generan en los consumidores, utilizando como métrica la interacción con la aplicación. En segundo lugar, dado que la publicidad puede mostrarse de manera aleatoria a los consumidores, el aumento en la interacción con la aplicación puede considerarse exógeno, lo que permite estimar de manera causal cómo dicha interacción se traduce en ventas, tanto en el momento de la exposición como en períodos posteriores.
+
+
+%OLD 
+%El diseño ecconométrico propuesto para abordar estas preguntas se basa en dos diseños distintos. Por un lado, se porpone estimar mopdelos de probabilidad condicional, el segundo una estrategia basada en un modelo de variables instrumentales implementado en dos etapas. 
+
+%Una primera estrategia consiste en estimar modelos de probabilidad de compra de productos en tienda relacionados con publicidad especifica. A modo de ejemplo, se estimara cual es la probabilidad de comprar un cafe en la tienda y si esa probabilidad aumenta cuando en una estacion de servicio se encuentra mostrando una publicidad de cafe en ese momento. El modelo controlara por efecto fijo a nivel estacio de servicio, dia y hora, flujo de ventas en combustibles y otros productos en tienda.  En definitiva se buscara contruir un contrafactico con el objetivo de comparar dos estaciones de servicio ``promedio'' en condiciones similares, pero que solo difieren en que una muestra una publicidad atada a un producto específico. Dado que la publicidad mostrada tiene un objetivo especifico, se lograra estimar parametros que permitan medir el efecto de la publicidad en la demanda especifica de un producto.  de de observaciones permite controlar por factores especificos  en donde la variable dependiente.  
+
+
+%Una segunda estrategia consiste en implementar un modelo  variables instrumentales implementado en dos etapas. En una primera etapa, se buscara identificar  el efecto especifico de la carteleria digital sobre tiempo de uso en la aplicacion.  En este marco, la variable instrumental corresponde a la exposición a la publicidad, medida a través de la interacción con la aplicación. La variable endógena es el nivel de ventas, y el parámetro de interés corresponde al impacto de la interacción con la aplicación sobre las ventas.
+
+%Dado el nivel de desagregación de la base de datos \emph{TRANSACCIONAL SERVICLUB}, es posible estimar métricas sobre el impacto de una publicidad específica en el uso de la aplicación. En una primera etapa, el objetivo consiste en identificar si los cambios en la publicidad generan, en promedio, un mayor nivel de interacción con la aplicación, por ejemplo mediante una mayor frecuencia de apertura o un mayor tiempo de uso.
+
+%Para realizar una estimación adecuada y un análisis integral sobre la implementación de la cartelería digital, es necesaria primero una discusión conceptual con el equipo responsable de implementar la comunicación comercial dinámica a fin de identificar y categorizar los mensajes orientados a publicidad y a los de promociones especificas. 
+
+
+%El hecho de contar con datos a nivel de usuario que pueden vincularse con la estación de servicio donde los clientes cargan combustible permite medir el grado de interacción de los consumidores con la aplicación en distintos contextos.
+
+%La estrategia empírica no se limita a estimar el impacto de las distintas publicidades sobre la interacción con la aplicación. En una segunda etapa, dicha interacción se utiliza como insumo para evaluar cómo una mayor o menor exposición a la aplicación se traduce en efectos sobre la demanda de combustibles y de productos dentro de la tienda.
+
+%Desde el punto de vista econométrico, esta estrategia puede implementarse mediante un modelo de variables instrumentales. En este marco:
+
+%\begin{itemize}
+%    \item La variable instrumental es la exposición a la publicidad, medida a través de la interacción con la aplicación.
+%    \item La variable endógena es el nivel de ventas.
+%    \item El parámetro de interés corresponde al impacto de la interacción con la aplicación sobre las ventas.
+%\end{itemize}
+
+%Los resultados permiten obtener conclusiones en dos dimensiones. En primer lugar, es posible clasificar los distintos tipos de publicidad según el grado de reacción que generan en los consumidores, utilizando como métrica la interacción con la aplicación. En segundo lugar, dado que la publicidad puede mostrarse de manera aleatoria a los consumidores, el aumento en la interacción con la aplicación puede considerarse exógeno, lo que permite estimar de manera causal cómo dicha interacción se traduce en ventas, tanto en el momento de la exposición como en períodos posteriores.
 
 %En términos generales, los objetivos de esta estrategia se centran en dos dimensiones principales (1) identificación del consumidor con la marca. %(2), mejorar la experiencia del usuario.
 
@@ -60,20 +83,7 @@ Los resultados permiten obtener conclusiones en dos dimensiones. En primer lugar
 
 \subsection{Datos requeridos}
 
-Para realizar una estimación completa, se requieren datos a nivel de usuario y a nivel de estación de servicio, con frecuencia horaria. En particular, es necesario contar con información para clasificar los tipos de publicidades mostradas en la cartelería digital. Dicha clasificacion debera hacerse junto con el equipor responsale de la implementacion de la carteleria digital, a fin de entender los fines de cada tipo de mensaje y su objetivo especifico.
+Para realizar una estimación completa, se requieren datos desagregados tanto a nivel de usuario como de estación de servicio, con frecuencia horaria. En particular, es necesario contar con información que permita clasificar los tipos de publicidades mostradas en la cartelería digital. Dicha clasificación deberá realizarse junto con el equipo responsable de la implementación de la cartelería, con el fin de comprender los fines de cada tipo de mensaje y su objetivo específico.
 
-Adicionalmente, se requieren datos sobre las ventas de combustibles y productos de tienda con frecuencia diaria —o idealmente horaria— para poder medir el impacto de la publicidad sobre las ventas y sobre la interacción con la aplicación.
-Se debera cruzar las bases de datos  \emph{DIMENSIONAL ESTACIONES DE SERVICIO / TIENDAS} , \emph{TRANSACCIONAL ESTACIONES DE SERVICIO},  \emph{TRANSACCIONAL TIENDAS}  y \emph{TRANSACCIONAL SERVICLUB}. 
-
-
-La base de datos ideal tendría una estructura a nivel de estación de servicio y hora, e incluiría información sobre:
-
-\begin{itemize}
-    \item cantidad de usuarios que compraron combustible,
-    \item cantidad de usuarios que interactuaron con la aplicación,
-    \item tipo de publicidad mostrada en la cartelería digital,
-    \item ventas de combustibles,
-    \item ventas de productos de tienda.
-\end{itemize}
-
+Adicionalmente, se requieren datos sobre las ventas de combustibles y productos de tienda con frecuencia diaria, o idealmente horaria, para medir el impacto de la publicidad sobre las ventas y la interacción con la aplicación. Para ello, se deberán cruzar las bases de datos \emph{DIMENSIONAL ESTACIONES DE SERVICIO / TIENDAS}, \emph{TRANSACCIONAL ESTACIONES DE SERVICIO}, \emph{TRANSACCIONAL TIENDAS} y \emph{TRANSACCIONAL SERVICLUB}. La base de datos ideal incluiría, a nivel de estación y hora, información sobre la cantidad de usuarios que compraron combustible, la cantidad de usuarios que interactuaron con la aplicación, el tipo de publicidad mostrada, y las ventas de combustibles y productos de tienda.
 
