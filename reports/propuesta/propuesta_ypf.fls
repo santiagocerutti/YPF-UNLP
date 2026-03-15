@@ -336,13 +336,13 @@ INPUT .\propuesta_ypf.toc
 INPUT propuesta_ypf.toc
 INPUT C:\Users\fmpiz\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbxi10.tfm
 OUTPUT propuesta_ypf.toc
-INPUT C:\Users\fmpiz\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmri12.tfm
 INPUT .\modulos-propuestas\bloque_FULL.tex
 INPUT .\modulos-propuestas\bloque_FULL.tex
 INPUT .\modulos-propuestas\bloque_FULL.tex
 INPUT .\modulos-propuestas\bloque_FULL.tex
 INPUT modulos-propuestas\bloque_FULL.tex
 INPUT C:\Users\fmpiz\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
+INPUT C:\Users\fmpiz\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmri12.tfm
 INPUT C:\Users\fmpiz\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbxi10.tfm
 INPUT .\modulos-propuestas\bloque_fidelizacion.tex
 INPUT .\modulos-propuestas\bloque_fidelizacion.tex
@@ -354,6 +354,12 @@ INPUT .\modulos-propuestas\bloque_infraestructura_iluminacion.tex
 INPUT .\modulos-propuestas\bloque_infraestructura_iluminacion.tex
 INPUT .\modulos-propuestas\bloque_infraestructura_iluminacion.tex
 INPUT modulos-propuestas\bloque_infraestructura_iluminacion.tex
+INPUT .\modulos-propuestas\bloque_ypf_boxes.tex
+INPUT .\modulos-propuestas\bloque_ypf_boxes.tex
+INPUT modulos-propuestas\bloque_ypf_boxes.tex
+INPUT .\modulos-propuestas\intro_bases_de_datos.tex
+INPUT .\modulos-propuestas\intro_bases_de_datos.tex
+INPUT modulos-propuestas\intro_bases_de_datos.tex
 INPUT propuesta_ypf.aux
 INPUT .\propuesta_ypf.out
 INPUT .\propuesta_ypf.out
