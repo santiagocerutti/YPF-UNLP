@@ -41,27 +41,7 @@ estaciones, que permite aplicar una lógica similar a la del módulo de Tiendas 
 comparar cada estación consigo misma antes y después de la instalación, usando como 
 referencia estaciones aún no equipadas en ese período.
 
-\subsubsection*{Ejercicio 1: Impacto del contenido publicitario sobre ventas 
-en tienda}
-
-\textbf{Pregunta:} ¿La exposición a un mensaje específico en la cartelería digital 
-aumenta la probabilidad de comprar el producto promocionado?
-
-\textbf{Lógica del ejercicio:} Para cada producto o categoría que aparece en la 
-cartelería, se estima la probabilidad de compra en función de si el mensaje 
-correspondiente estaba activo en el momento de la visita, controlando por efectos 
-fijos de estación, día y hora, así como por el flujo general de clientes. Esto permite 
-comparar el comportamiento de clientes en condiciones similares, diferenciados 
-únicamente por el mensaje al que estuvieron expuestos. La granularidad horaria de 
-los datos es clave para este ejercicio: permite capturar, por ejemplo, si una 
-publicidad de café activa durante la mañana tiene un efecto distinto al de la misma 
-publicidad activada al mediodía.
-
-\textbf{Datos necesarios:} Registro de contenidos mostrados en cartelería digital 
-por estación y franja horaria; transacciones de tienda con fecha, hora y producto; 
-datos de tráfico de clientes por estación y período.
-
-\subsubsection*{Ejercicio 2: Efecto de la cartelería sobre la interacción con 
+\subsubsection*{Ejercicio 1: Efecto de la cartelería sobre la interacción con 
 la aplicación y sus consecuencias sobre ventas}
 
 \textbf{Pregunta:} ¿La exposición a publicidad en la cartelería aumenta el uso de 
@@ -81,6 +61,29 @@ impacto causal sobre el comportamiento de compra.
 usuario, estación y hora; registro de contenidos en cartelería digital; 
 transacciones de combustibles y tienda.
 
+
+\subsubsection*{Ejercicio 2: Impacto del contenido publicitario sobre ventas 
+en tienda}
+
+\textbf{Pregunta:} ¿La exposición a un mensaje específico en la cartelería digital 
+aumenta la probabilidad de comprar el producto promocionado?
+
+\textbf{Lógica del ejercicio:} Para cada producto o categoría que aparece en la 
+cartelería, se estima la probabilidad de compra en función de si el mensaje 
+correspondiente estaba activo en el momento de la visita, controlando por efectos 
+fijos de estación, día y hora, así como por el flujo general de clientes. Esto permite 
+comparar el comportamiento de clientes en condiciones similares, diferenciados 
+únicamente por el mensaje al que estuvieron expuestos. La granularidad horaria de 
+los datos es clave para este ejercicio: permite capturar, por ejemplo, si una 
+publicidad de café activa durante la mañana tiene un efecto distinto al de la misma 
+publicidad activada al mediodía.
+
+\textbf{Datos necesarios:} Registro de contenidos mostrados en cartelería digital 
+por estación y franja horaria; transacciones de tienda con fecha, hora y producto; 
+datos de tráfico de clientes por estación y período.
+
+
+
 \subsection{Datos requeridos}
 
 El análisis requiere datos desagregados a nivel de estación con frecuencia horaria 
@@ -90,3 +93,4 @@ de activación— que deberá construirse junto con el equipo responsable de la
 comunicación comercial. Esta categorización es un insumo indispensable para poder 
 distinguir el efecto de distintos tipos de mensajes. Las fuentes transaccionales 
 requeridas se detallan en la sección~\ref{sec:datos}.
+
