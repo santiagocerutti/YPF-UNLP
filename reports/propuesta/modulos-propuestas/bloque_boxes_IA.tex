@@ -1,0 +1,62 @@
+
+YPF Boxes es el servicio de mantenimiento vehicular integrado a las estaciones de 
+servicio. A diferencia de los otros módulos, donde el foco está en cuantificar el 
+efecto causal de una intervención específica, este módulo tiene un objetivo 
+principalmente diagnóstico: entender qué factores explican el grado de utilización 
+actual de los boxes y en qué contextos operativos alcanzan mayor demanda. Esta 
+caracterización es el punto de partida necesario para cualquier decisión futura sobre 
+la expansión o reconfiguración del servicio.
+
+\subsection{Objetivo}
+
+Las preguntas centrales que guían el análisis son:
+
+\begin{itemize}
+    \item ¿Qué factores explican las diferencias en el grado de utilización entre 
+    estaciones?
+    \item ¿La presencia de competidores cercanos —lubricentros independientes u 
+    otras estaciones con boxes— reduce la utilización?
+    \item ¿La ubicación de la estación (sobre ruta o en zona urbana) afecta la 
+    demanda del servicio?
+    \item ¿Existen patrones de estacionalidad o picos de demanda sistemáticos?
+    \item ¿Qué características de la estación o del entorno predicen un mayor 
+    nivel de utilización?
+\end{itemize}
+
+\subsection{Diseño econométrico}
+
+A diferencia de los módulos anteriores, en este caso no se dispone de una 
+intervención con variación exógena clara que permita aplicar un diseño 
+cuasi-experimental. El análisis se basa en cambio en la variación observada entre 
+estaciones y a lo largo del tiempo, estimando un modelo que relaciona el grado de 
+utilización de los boxes con un conjunto de factores estructurales, competitivos y 
+temporales. El objetivo no es estimar el efecto causal de una política específica, 
+sino identificar patrones sistemáticos que permitan caracterizar la demanda y orientar 
+decisiones operativas.
+
+\subsubsection*{Ejercicio: Determinantes del grado de utilización}
+
+\textbf{Pregunta:} ¿Qué características de la estación, del entorno competitivo y 
+del contexto temporal explican las diferencias en el nivel de uso de los boxes?
+
+\textbf{Lógica del ejercicio:} Se estima un modelo de regresión donde la variable 
+dependiente es el grado de utilización de los boxes en cada estación y período 
+—definido como la proporción del tiempo en que los boxes se encuentran ocupados, 
+o una métrica equivalente construida a partir de registros operativos—. Entre las 
+variables explicativas se incluyen: indicadores de competencia local (cantidad de 
+lubricentros y otras estaciones con servicios similares en un radio geográfico 
+definido), características de la estación (ubicación sobre ruta o en zona urbana, 
+antigüedad, tamaño), variables de precio, y controles temporales para capturar 
+estacionalidad y variaciones de corto plazo. La estimación explota variación tanto 
+entre estaciones como dentro de cada una a lo largo del tiempo, lo que permite 
+separar factores estructurales de fluctuaciones coyunturales.
+
+Los resultados de este ejercicio permiten identificar en qué contextos los boxes 
+operan cerca de su capacidad y en cuáles presentan capacidad ociosa persistente, 
+lo que aporta información concreta para decisiones sobre precios, promociones 
+o reasignación de recursos dentro de la red.
+
+\textbf{Datos necesarios:} Registros operativos de utilización de boxes por 
+estación y período; características de cada estación; información georreferenciada 
+sobre competidores. Las fuentes transaccionales requeridas se detallan en la 
+sección~\ref{sec:datos}.

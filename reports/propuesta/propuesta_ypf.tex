@@ -57,13 +57,13 @@ para el negocio de estaciones de servicio YPF}}
 \section{Introducción}
 
 
-\textcolor{red}{
-Contexto: Competencia no-precio en combustibles
-Complejidad: Dificultad para identificar efectos causales
-Que propponemos: Enfoque econométrico para estimación causal
-Como lo hacemos I : Propuesta modular de investigación
-Como lo hacemos II: Estructura y estado de módulos
-Descripción de los cuatro módulos}
+
+% Contexto: Competencia no-precio en combustibles
+% Complejidad: Dificultad para identificar efectos causales
+% Que propponemos: Enfoque econométrico para estimación causal
+% Como lo hacemos I : Propuesta modular de investigación
+% Como lo hacemos II: Estructura y estado de módulos
+% Descripción de los cuatro módulos
 
 
 
@@ -77,15 +77,16 @@ El presente documento se desarrolla a través de la inclusión de distintos mód
 
 La estructura de cada módulo se basa en tres partes: la identificación de una o más preguntas concretas a responder, el diseño econométrico para su estimación acompañado de una justificación metodológica, y la descripción de los requerimientos en términos de datos. Los primeros dos módulos cuentan ya con un diseño empírico más desarrollado, mientras que en los últimos dos aún restan definiciones metodológicas vinculadas con la construcción de variables o con la especificación del modelo. En estos casos, avanzar en el diseño requiere profundizar el conocimiento sobre el funcionamiento operativo del negocio, así como identificar con mayor precisión las necesidades de información más relevantes para la toma de decisiones dentro de la empresa.
 
-El documento se organiza en torno a cuatro módulos de investigación. El primero analiza el impacto de la conversión de estaciones al formato YPF \emph{Full} sobre las ventas de combustibles y de tienda, con el objetivo de cuantificar el retorno comercial de este tipo de inversiones. El segundo estudia el programa de fidelización Serviclub y busca identificar en qué medida sus incentivos afectan el comportamiento de consumo de los clientes. El tercer módulo evalúa el impacto de la cartelería digital y otras herramientas de comunicación comercial sobre la interacción de los consumidores con la marca y sobre las ventas en la estación. Finalmente, el cuarto módulo analiza el funcionamiento del modelo de negocio de YPF Boxes, con el objetivo de comprender los determinantes de su grado de utilización y el entorno competitivo en el que operan. \textcolor{red}{Adicionalmente, el documento incluye una sección de descripción de bases de datos que presenta las principales fuentes de información que entendemos se encuentran disponibles dentro de YPF y que resultan relevantes para la implementación de los ejercicios empíricos propuestos. VER CÓMO ORGANIZAMOS LO DE DATOS Y FALTA LO DE SERVICIO DE CONSULTORIA TMB}
-
-
-
-
-
-
-
-
+El documento se organiza en torno a cuatro módulos de investigación: el impacto 
+de la conversión al formato YPF Full sobre ventas de combustibles y tienda; la 
+evaluación del programa de fidelización Serviclub; el efecto de la cartelería 
+digital sobre el comportamiento de compra; y los determinantes de la utilización 
+de YPF Boxes. Cada módulo incluye un diseño empírico claramente definido y una 
+descripción de los datos requeridos. El documento se completa con una sección de 
+bases de datos disponibles, una propuesta de servicio de asistencia técnica para 
+consultas analíticas puntuales, y un apartado sobre la posibilidad de extender 
+el trabajo hacia diseños experimentales en aquellas preguntas donde los datos 
+observacionales no sean suficientes.
 
 
 \section{Apertura de Tiendas \emph{Full}}
@@ -94,11 +95,16 @@ El documento se organiza en torno a cuatro módulos de investigación. El primer
 \section{Programa de Fidelización \emph{Serviclub}}
 \input{modulos-propuestas/bloque_fidelizacion}
 
-\section{Infraestructura de Comunicación: Cartelería Digital}
-\input{modulos-propuestas/bloque_infraestructura_iluminacion}
+%\section{Infraestructura de Comunicación: Cartelería Digital}
+%\input{modulos-propuestas/bloque_infraestructura_iluminacion}
+
+\section{Infraestructura de comunicación: cartelería digital}
+\input{modulos-propuestas/bloque_carteleria_IA.tex}
 
 \section{YPF BOXES}
-\input{modulos-propuestas/bloque_ypf_boxes.tex}
+%\input{modulos-propuestas/bloque_ypf_boxes.tex}
+\input{modulos-propuestas/bloque_boxes_IA.tex}
+
 
 \section{Asistencia técnica y consultoría analítica}
 \input{modulos-propuestas/bloque_asistencia.tex}
@@ -107,7 +113,13 @@ El documento se organiza en torno a cuatro módulos de investigación. El primer
 
 
 \section{Bases de datos}
-\input{modulos-propuestas/intro_bases_de_datos.tex}
+\input{modulos-propuestas/datos_IA.tex}
+%\input{modulos-propuestas/intro_bases_de_datos.tex}
+
 %OLD La presente propuesta detalla un conjunto de módulos de investigación econométrica aplicada, orientados a proveer información estratégica accionable para YPF en su negocio de estaciones de servicio. Cada bloque aborda una problemática clave –desde la efectividad de inversiones en formato Full o iluminación, hasta el impacto de estrategias comerciales innovadoras como micro-pricing, programas de fidelización y alianzas– con metodologías de punta que garantizan identificaciones causales claras. Al estar estructurados como módulos independientes, estos estudios pueden encararse de manera escalonada según las prioridades del Directorio, manteniendo en todos los casos un estándar técnico-profesional alto y un enfoque práctico en la toma de decisiones. Aplicando estas técnicas modernas de análisis sobre los abundantes datos operativos de YPF, la compañía podrá cuantificar el efecto real de sus iniciativas en un mercado competitivo, separando el \emph{ruido} de la \emph{señal} en la información. De este modo, YPF obtendrá insumos robustos para optimizar sus estrategias de aumento de ventas, mejora de experiencia al cliente y consolidación de su liderazgo de mercado, basados en evidencia empírica concreta adaptada a su realidad de negocio.
+
+\section{Extensión: diseños experimentales}
+\input{modulos-propuestas/extension.tex}
+
 
 \end{document}

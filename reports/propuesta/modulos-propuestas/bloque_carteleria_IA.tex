@@ -1,0 +1,92 @@
+YPF ha implementado cartelería digital en sus estaciones, lo que permite desplegar 
+comunicación comercial dinámica: publicidades, promociones y mensajes segmentados 
+por momento del día, perfil de cliente o contexto de compra. Este módulo analiza si 
+esa infraestructura tiene un impacto medible sobre las ventas de combustibles y 
+productos de tienda, e identifica qué tipos de mensajes y momentos de exposición 
+resultan más efectivos.
+
+\subsection{Objetivo}
+
+Las preguntas centrales que guían el análisis son:
+
+\begin{itemize}
+    \item ¿La cartelería digital aumenta las ventas en la estación?
+    \item ¿Qué tipo de mensajes generan mayor respuesta: publicidades de marca 
+    o promociones de producto?
+    \item ¿Importa el momento del día en que se muestra el mensaje? ¿Una 
+    publicidad de café a las 8:00 AM aumenta la probabilidad de comprar 
+    un café en la tienda?
+    \item ¿La exposición a publicidad en la cartelería aumenta la interacción 
+    con la aplicación móvil?
+    \item ¿Qué retorno económico tiene la inversión en cartelería digital?
+\end{itemize}
+
+\subsection{Diseño econométrico}
+
+El principal desafío metodológico es que las estaciones que cuentan con cartelería 
+digital no son necesariamente comparables con las que no la tienen: pueden diferir 
+en tamaño, ubicación o perfil de clientes. Además, el contenido que se muestra en 
+cada estación no es aleatorio, sino que responde a decisiones comerciales que pueden 
+estar correlacionadas con las ventas. Comparar directamente estaciones con y sin 
+cartelería, o períodos con y sin determinada publicidad, podría entonces reflejar esas 
+diferencias previas en lugar del efecto real de la comunicación.
+
+La estrategia para sortear este problema aprovecha dos fuentes de variación. La 
+primera es la rotación del contenido publicitario dentro de una misma estación a lo 
+largo del tiempo: si una estación alterna entre distintos mensajes en distintos 
+momentos del día, es posible comparar el comportamiento de los clientes expuestos 
+a cada tipo de contenido controlando por las características fijas de la estación. La 
+segunda fuente de variación es la instalación escalonada de la cartelería en distintas 
+estaciones, que permite aplicar una lógica similar a la del módulo de Tiendas Full: 
+comparar cada estación consigo misma antes y después de la instalación, usando como 
+referencia estaciones aún no equipadas en ese período.
+
+\subsubsection*{Ejercicio 1: Impacto del contenido publicitario sobre ventas 
+en tienda}
+
+\textbf{Pregunta:} ¿La exposición a un mensaje específico en la cartelería digital 
+aumenta la probabilidad de comprar el producto promocionado?
+
+\textbf{Lógica del ejercicio:} Para cada producto o categoría que aparece en la 
+cartelería, se estima la probabilidad de compra en función de si el mensaje 
+correspondiente estaba activo en el momento de la visita, controlando por efectos 
+fijos de estación, día y hora, así como por el flujo general de clientes. Esto permite 
+comparar el comportamiento de clientes en condiciones similares, diferenciados 
+únicamente por el mensaje al que estuvieron expuestos. La granularidad horaria de 
+los datos es clave para este ejercicio: permite capturar, por ejemplo, si una 
+publicidad de café activa durante la mañana tiene un efecto distinto al de la misma 
+publicidad activada al mediodía.
+
+\textbf{Datos necesarios:} Registro de contenidos mostrados en cartelería digital 
+por estación y franja horaria; transacciones de tienda con fecha, hora y producto; 
+datos de tráfico de clientes por estación y período.
+
+\subsubsection*{Ejercicio 2: Efecto de la cartelería sobre la interacción con 
+la aplicación y sus consecuencias sobre ventas}
+
+\textbf{Pregunta:} ¿La exposición a publicidad en la cartelería aumenta el uso de 
+la aplicación móvil? ¿Y ese mayor uso se traduce en mayores ventas?
+
+\textbf{Lógica del ejercicio:} Este ejercicio aborda una cadena causal en dos 
+etapas. En la primera, se estima si la exposición a la cartelería aumenta la 
+interacción del cliente con la aplicación —medida por tiempo de uso, apertura o 
+transacciones realizadas a través de ella—. En la segunda, se usa esa variación 
+inducida por la publicidad como palanca para estimar el efecto del uso de la 
+aplicación sobre las ventas. Este enfoque, conocido como variables instrumentales, 
+permite aislar la parte del uso de la aplicación que se explica por la exposición 
+publicitaria —y que por lo tanto puede considerarse exógena— para estimar su 
+impacto causal sobre el comportamiento de compra.
+
+\textbf{Datos necesarios:} Datos de interacción con la aplicación a nivel de 
+usuario, estación y hora; registro de contenidos en cartelería digital; 
+transacciones de combustibles y tienda.
+
+\subsection{Datos requeridos}
+
+El análisis requiere datos desagregados a nivel de estación con frecuencia horaria 
+o diaria. En particular, es necesario contar con el registro de contenidos mostrados 
+en la cartelería —tipo de mensaje, producto o categoría promocionada, franja horaria 
+de activación— que deberá construirse junto con el equipo responsable de la 
+comunicación comercial. Esta categorización es un insumo indispensable para poder 
+distinguir el efecto de distintos tipos de mensajes. Las fuentes transaccionales 
+requeridas se detallan en la sección~\ref{sec:datos}.

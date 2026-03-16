@@ -1,0 +1,71 @@
+\label{sec:datos}
+
+Los análisis propuestos en los distintos módulos se apoyan en un conjunto de fuentes 
+de datos disponibles dentro de YPF. El siguiente cuadro resume qué bases son 
+necesarias para cada módulo.
+
+\begin{table}[h]
+\centering
+\caption{Fuentes de datos por módulo}
+\label{tab:datos}
+\setlength{\extrarowheight}{4pt}
+\small
+\begin{tabular}{lcccc}
+\hline\hline
+\textbf{Base de datos} & \textbf{Full} & \textbf{Serviclub} & 
+\textbf{Cartelería} & \textbf{Boxes} \\
+\hline
+Dimensional estaciones / tiendas   & \checkmark & \checkmark & \checkmark & \checkmark \\
+Transaccional estaciones            & \checkmark & \checkmark & \checkmark & \\
+Transaccional tiendas               & \checkmark & \checkmark & \checkmark & \\
+Transaccional Serviclub             &            & \checkmark & \checkmark & \\
+Cartelería digital (contenidos)     &            &            & \checkmark & \\
+Registros operativos boxes          &            &            &            & \checkmark \\
+Datos de competidores / entorno     & \checkmark &            &            & \checkmark \\
+Costos de inversión y operación     & \checkmark &            &            & \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+A continuación se describe brevemente la información con la que se espera contar de cada fuente:
+
+\begin{itemize}
+
+    \item \textbf{Dimensional estaciones / tiendas.} Datos de ubicación y 
+    características de cada estación: provincia, localidad, coordenadas 
+    geográficas, nombre, tipo de red (propia, terceros, ACA), formato 
+    (Full o tradicional), y variables demográficas del entorno cuando 
+    estén disponibles (nivel socioeconómico, densidad poblacional).
+
+    \item \textbf{Transaccional estaciones de servicio.} Datos a nivel de 
+    despacho: tipo de combustible, litros y monto, fecha y hora, estación 
+    y surtidor.
+
+    \item \textbf{Transaccional tiendas.} Datos a nivel de transacción en 
+    tienda: producto, categoría, monto, fecha y hora, estación.
+
+    \item \textbf{Transaccional Serviclub.} Datos a nivel de transacción con 
+    identificación de cliente: combustible, litros y monto, fecha y hora, 
+    medio de pago (app, Mercado Pago, MODO u otro). Para compras en tienda 
+    Full a través de la aplicación el detalle de producto.
+
+    \item \textbf{Cartelería digital.} Registro de contenidos mostrados por 
+    estación y franja horaria: tipo de mensaje, producto o categoría 
+    promocionada, duración de la exposición. Esta base deberá construirse 
+    o sistematizarse junto con el equipo responsable de la comunicación 
+    comercial.
+
+    \item \textbf{Registros operativos de boxes.} Información sobre capacidad 
+    instalada y grado de utilización por estación y período, a partir de 
+    los sistemas internos de gestión del servicio.
+
+    \item \textbf{Datos de competidores y entorno.} Información 
+    georreferenciada sobre estaciones competidoras y lubricentros 
+    independientes, obtenida a partir de fuentes públicas, datos 
+    administrativos o estimaciones de mercado disponibles.
+
+    \item \textbf{Costos de inversión y operación.} Costos de remodelación 
+    al formato Full y costos operativos adicionales por estación, necesarios 
+    para el análisis de retorno de inversión del módulo~2.
+
+\end{itemize}
