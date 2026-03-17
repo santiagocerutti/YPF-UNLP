@@ -1,4 +1,6 @@
 *.pdf
+!enviados/*.pdf
+!enviados/**/*.pdf
 *.aux
 *.log
 *.out
