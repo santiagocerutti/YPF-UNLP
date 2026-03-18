@@ -1,0 +1,260 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{default}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{graphicx} % For vertical centering
+
+% --------------------------
+% Colors & Style (unchanged)
+% --------------------------
+\definecolor{YPFBlue}{RGB}{0,51,102}
+\definecolor{LightBlue}{RGB}{102,178,255}
+\definecolor{SoftGray}{RGB}{90,90,90}
+\definecolor{VeryLightGray}{RGB}{240,242,245}
+
+\setbeamercolor{title}{fg=YPFBlue}
+\setbeamercolor{frametitle}{fg=YPFBlue}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{block title}{bg=VeryLightGray,fg=YPFBlue}
+\setbeamercolor{block body}{bg=white}
+
+
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{frametitle}{series=\bfseries,size=\Large}
+
+\newcommand{\highlight}[1]{\textcolor{YPFBlue}{\textbf{#1}}}
+\newcommand{\soft}[1]{\textcolor{SoftGray}{#1}}
+
+% --------------------------
+% Title info
+% --------------------------
+\title{Datos, econometría e inferencia causal para decisiones de negocio}
+\author{
+Santiago Cerutti \and Guillermo Falcone \and Francisco Pizzi \and Jorge Puig
+}
+\date{}
+
+\begin{document}
+
+% ==================================================
+% Slide 1: Team / Cover (Single Column Layout)
+% ==================================================
+\begin{frame}[plain]
+    \centering
+    \vspace{1cm}
+    
+    {\color{YPFBlue}\bfseries\LARGE Datos, econometría e inferencia causal\\[0.2cm]
+    para decisiones de negocio}
+
+    \vspace{0.7cm}
+
+    {\large \soft{Una introducción a nuestro método de trabajo}}
+
+    \vfill
+
+    \begin{block}{\large Equipo}
+        \large
+        \quad\textbullet\quad Santiago Cerutti \\ \quad\textbullet\quad Guillermo Falcone \\ \quad\textbullet\quad Francisco Pizzi \\ \quad\textbullet\quad Jorge Puig
+    \end{block}
+    
+    \vfill
+\end{frame}
+
+% ==================================================
+% Slide 2: The Challenge of Deciding in the Real World (Revised, more sober)
+% ==================================================
+\begin{frame}{Cómo medir el impacto real de las decisiones de un negocio?}
+
+\vspace{0.5cm}
+
+\begin{center}
+\Large
+Las decisiones de una empresa no se toman en un laboratorio, sino en un \soft{entorno complejo y dinámico donde múltiples factores influyen simultaneamente sobre el resultado final.}
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{El problema central: separar la señal del ruido}
+\justifying
+Cuando se toma una decisión, los resultados que vemos son una mezcla del impacto real de dicha acción y del "ruido" de fondo (la competencia, la economía, el clima, otras decisiones simultáneas, etc.). Una simple correlación puede ser muy engañosa.
+\vspace{0.3cm}
+\begin{center}
+\Large\highlight{Entonces, ¿cómo aislamos el verdadero efecto de una decisión?}
+\end{center}
+\end{block}
+
+\vfill
+
+\end{frame}
+
+% ==================================================
+% Slide 4: Our Answer: The Counterfactual (Old Slide 3, renumbered & retitled)
+% ==================================================
+\begin{frame}{Nuestra respuesta: la ciencia de la inferencia causal}
+\begin{center}
+{\Large \soft{Para aislar el efecto, debemos comparar lo que pasó con lo que hubiese pasado.}}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\Large
+\[
+\text{Resultado observado}
+\quad \highlight{\text{vs.}} \quad
+\underbrace{
+    \begin{tabular}{c}
+    Resultado en un mundo \\
+    donde la acción no ocurrió
+    \end{tabular}
+}_{\text{\normalsize\highlight{El contrafactual}}}
+\]
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{block}{Nuestro trabajo: construir ese mundo}
+\justifying
+Usando los propios datos de la empresa, construimos una \highlight{representación científica} de ese escenario contrafactual. Esto nos permite obtener una estimación del \highlight{efecto causal} real de la decisión.
+\end{block}
+
+\end{frame}
+
+% ==================================================
+% Slide 4: The Example - Part 1: The Question (NEW, split slide)
+% ==================================================
+\begin{frame}{Un ejemplo: ¿funcionó una promoción?}
+
+\begin{block}{La pregunta de negocio}
+\justifying
+YPF lanza una promoción en 100 de sus estaciones. El objetivo es claro: queremos saber si funcionó y, sobre todo, \highlight{cuánto valor generó}.
+\vspace{0.2cm}
+\begin{center}
+    \large
+    \highlight{¿Cuál fue el impacto real de la promoción en las ventas?}
+\end{center}
+\end{block}
+
+\begin{block}{El análisis "naive" (y por qué falla)}
+\justifying
+La primera tentación es comparar las ventas de las 100 estaciones \textit{con promoción} contra las ventas del resto.
+\vspace{0.3cm}
+
+\textit{\soft{Pero este enfoque es engañoso. Las estaciones no se eligen al azar; quizás la promoción se aplicó en las que ya eran más grandes o estaban en zonas de mayor poder adquisitivo. Comparar grupos que no son comparables nos lleva a conclusiones erróneas.}}
+\end{block}
+
+\end{frame}
+
+% ==================================================
+% Slide 5: The Example - Part 2: The Solution (NEW, split slide)
+% ==================================================
+\begin{frame}{Un ejemplo: nuestra solución}
+
+\begin{block}{Paso 1: Construir un grupo de control a medida}
+\justifying
+En lugar de comparar contra "todas las demás", usamos los datos para encontrar \highlight{"estaciones gemelas"}. Para cada estación con promoción, identificamos un grupo de estaciones muy parecidas (en ventas previas, ubicación, tamaño, etc.) pero \highlight{que no tuvieron la promoción}.
+\end{block}
+
+\begin{block}{Paso 2: Comparar la evolución de ambos grupos}
+\justifying
+Ahora sí tenemos una comparación justa. Medimos el cambio en ventas \highlight{antes y después} de la promoción en ambos grupos y comparamos esas trayectorias.
+\begin{center}
+\large
+\[
+\underbrace{\Delta \text{Ventas}}_{\text{con promoción}}
+\quad \text{vs.} \quad
+\underbrace{\Delta \text{Ventas}}_{\text{\highlight{grupo de control}}}
+\]
+\end{center}
+\justifying
+La diferencia entre ambos es nuestra estimación del \highlight{efecto causal real}.
+\end{block}
+
+\end{frame}
+
+% ==================================================
+% Slide 6: How We Do It (Single Column Layout)
+% ==================================================
+\begin{frame}{¿Cómo lo hacemos? Un enfoque científico y a medida}
+
+\begin{block}{Principio de trabajo}
+\justifying
+Nos enfocamos en \highlight{una pregunta específica a la vez}. Cada pregunta exige un diseño de análisis propio, porque los datos y el contexto son únicos. No usamos "modelos enlatados".
+\end{block}
+
+\begin{block}{Nuestra caja de herramientas}
+\justifying
+Aplicamos técnicas de la econometría de evaluación de impacto. El nombre es académico, pero la idea es simple: usar la herramienta correcta para cada trabajo. Algunas de ellas son:
+\begin{itemize}
+    \item Diseños de Diferencias en Diferencias
+    \item Control Sintético (y derivados)
+    \item Variables Instrumentales y Diseños de Regresión por Discontinuidad
+    \item \highlight{Diseños ad-hoc que se ajustan a la estructura de los datos de YPF}
+\end{itemize}
+\end{block}
+
+\vfill
+\begin{center}
+\Large
+\soft{El foco es la} \highlight{identificación causal}, \soft{no la simple correlación o el pronóstico.}
+\end{center}
+\end{frame}
+
+% ==================================================
+% Slide 7: Why this matters (Single Column Layout)
+% ==================================================
+\begin{frame}{¿Por qué es valioso este enfoque?}
+
+\begin{block}{Permite tomar mejores decisiones}
+\justifying
+Buscamos construir una base de conocimiento para la estrategia de la empresa. Es un activo que permite aprender del pasado para optimizar el futuro. Los resultados concretos son:
+\begin{itemize}
+    \item \highlight{Cuantificar} el ROI real de las acciones de negocio.
+    \item \highlight{Reducir} la incertidumbre en la planificación y la asignación de recursos.
+    \item \highlight{Separar} la intuición de la evidencia empírica para entender qué funciona y qué no.
+\end{itemize}
+\end{block}
+
+\begin{block}{Cómo se integra en la empresa}
+\justifying
+Este conocimiento \highlight{no reemplaza} la experiencia ni la intuición del equipo. Las \highlight{complementa} y las potencia con evidencia medible, rigurosa y auditable.
+\end{block}
+\end{frame}
+
+% ==================================================
+% Slide 8: Closing (Single Column Layout)
+% ==================================================
+\begin{frame}{Nuestro compromiso: rigurosidad y pragmatismo}
+\begin{center}
+\Large
+\soft{Somos un equipo de economistas aplicados.}
+\vspace{0.4cm}
+
+{\Large \highlight{Unimos la rigurosidad académica con el pragmatismo del negocio.}}
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{Qué entregamos}
+\justifying
+El producto no es un reporte genérico, sino una \highlight{serie de respuestas precisas a preguntas concretas}. La acumulación de estas respuestas genera un entendimiento estratégico profundo sobre las palancas de valor de la empresa.
+\end{block}
+
+\vfill
+
+\begin{center}
+\LARGE
+\soft{Transformamos sus datos en} \highlight{evidencia para decidir.}
+\end{center}
+\end{frame}
+
+\end{document}
