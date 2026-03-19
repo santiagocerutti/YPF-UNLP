@@ -1,6 +1,8 @@
 *.pdf
 !enviados/*.pdf
 !enviados/**/*.pdf
+
+# Archivos de LaTeX y PowerPoint generados durante la compilación
 *.aux
 *.log
 *.out
@@ -8,4 +10,6 @@
 *.synctex.gz
 *.fdb_latexmk
 *.fls
+*.snm
+*.nav
 *.pptx

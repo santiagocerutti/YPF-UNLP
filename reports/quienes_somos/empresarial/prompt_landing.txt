@@ -1,0 +1,85 @@
+Diseñar una landing page moderna y profesional para una firma de consultoría llamada "ContrafactualLab", especializada en inferencia causal y análisis econométrico para empresas del sector privado.
+
+ESTILO:
+- Estética corporativa premium (tipo McKinsey, BCG o Stripe)
+- Diseño limpio, minimalista, con mucho espacio en blanco
+- Tipografía fuerte y clara
+- Paleta de colores: azul oscuro / gris / blanco, con un color de acento sutil (teal o violeta)
+- Uso de íconos simples y visualizaciones de datos (líneas, gráficos, nodos)
+- Secciones bien separadas y jerarquía visual clara
+
+TONO:
+- Rigurosidad técnica, pero lenguaje claro
+- Profesional, analítico, sin buzzwords
+- Frases cortas, directas
+- Enfocado en credibilidad y claridad conceptual
+
+ESTRUCTURA:
+
+1. HERO
+- Título principal:
+  "Medimos el impacto real de las decisiones empresariales"
+- Subtítulo:
+  "No analizamos solo qué pasó, sino qué habría pasado si esa decisión no se hubiera tomado"
+- Botón CTA:
+  "Solicitar consulta"
+- Fondo con visual sutil de datos o líneas
+
+2. PROBLEMA
+- Título: "El problema"
+- Texto:
+  "En entornos reales, muchas variables cambian al mismo tiempo: precios, competencia, demanda, contexto."
+  "Por eso, es difícil atribuir resultados a una decisión específica."
+- Cita destacada:
+  "Muchas decisiones se evalúan con métricas que no aíslan su verdadero impacto"
+
+3. ENFOQUE
+- Título: "Nuestro enfoque"
+- Texto:
+  "Reconstruimos un escenario contrafactual: un mundo comparable donde la decisión no se hubiera implementado."
+- Incluir visual comparando:
+  - Mundo real
+  - Escenario contrafactual
+- Bullets:
+  - Estimamos el impacto
+  - Identificamos causalidad
+
+4. CÓMO TRABAJAMOS
+- Título: "Cómo lo hacemos"
+- Texto breve:
+  "Aplicamos técnicas econométricas de inferencia causal sobre datos de la empresa."
+- Bullets:
+  - Cada análisis responde una pregunta concreta
+  - Cada caso requiere un diseño específico
+  - Los supuestos y límites son explícitos
+
+5. VALOR
+- Título: "Qué valor genera"
+- Bullets:
+  - Separar señal de ruido
+  - Evitar conclusiones equivocadas
+  - Mejorar decisiones futuras
+- Frase destacada:
+  "Convertimos datos en evidencia causal accionable"
+
+6. PRODUCTO
+- Título: "Qué entregamos"
+- Texto:
+  "Trabajo riguroso y a medida."
+  "No ofrecemos dashboards genéricos, sino análisis profundos que construyen conocimiento acumulativo sobre el negocio."
+
+7. CTA FINAL
+- Título:
+  "Tomá mejores decisiones con evidencia causal"
+- Botón:
+  "Contactanos"
+
+8. FOOTER
+- Nombre: ContrafactLab
+- Información de contacto
+- LinkedIn
+
+EXTRA:
+- Agregar tarjetas (cards) para organizar contenido
+- Incluir micro-animaciones o efectos hover sutiles
+- Diseño responsive (desktop y mobile)

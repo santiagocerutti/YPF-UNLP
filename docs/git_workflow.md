@@ -96,6 +96,24 @@ Como el repositorio permite **0 approvals**, quien crea el PR puede
 
 ------------------------------------------------------------------------
 
+# Paso 6 --- Después del merge
+Una vez que el PR fue mergeado:
+
+GitHub elimina automáticamente la rama remota
+
+Pero la rama local sigue existiendo en tu computadora
+
+Debes borrarla manualmente:
+
+``` bash
+git checkout main
+git pull
+git branch -d nombre_de_la_rama
+```
+
+Esto mantiene tu repositorio limpio y evita acumulación de ramas viejas.
+
+------------------------------------------------------------------------
 # Qué pasa si dos personas editan el mismo archivo
 
 Puede ocurrir que dos personas modifiquen el mismo `.do`.
@@ -142,8 +160,14 @@ Se edita manualmente y se decide el resultado final.
 
 Luego:
 
-**Pull Request → Merge**
+**Pull Request → Merge** (Desde Github)
 
+Y finalmente (limpieza local):
+``` bash
+git checkout main
+git pull
+git branch -d nombre_de_la_rama
+```
 ------------------------------------------------------------------------
 
 Este workflow permite:
@@ -151,3 +175,4 @@ Este workflow permite:
 -   evitar sobrescribir cambios de otros
 -   mantener un historial claro
 -   trabajar en paralelo sin conflictos innecesarios
+-   evitar acumulación de ramas innecesarias en el repositorio y en local
