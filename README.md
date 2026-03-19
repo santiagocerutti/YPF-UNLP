@@ -52,6 +52,7 @@ Resumen rápido:
 2. Hacer commits pequeños y descriptivos.
 3. Actualizar la rama con `main` antes del PR.
 4. Integrar cambios mediante Pull Request.
+5. (opcional) Limpiar ramas locales después de mergear.
 
 ## Notas sobre LaTeX
 
